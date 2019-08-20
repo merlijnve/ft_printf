@@ -13,12 +13,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void	ft_putstr(char const *s)
-{
-	write(1, s, ft_strlen(s));
-}
-
-
 int		csp(void)
 {
 	char c;
@@ -29,9 +23,23 @@ int		csp(void)
 	s = "test";
 	c = '!';
 
-	printf("%s, %c, %p", s, c, &c);
+	printf("CSP:\n%s, %c, %p\n\n", s, c, &c);
 	//ft_printf("%s, %c, %p", s, c, &c);
+	
 	return (0);
+}
+
+int		diouxx(void)
+{
+	char	i;
+	short	s;
+
+	s = -32769;
+	i = 'a';
+	printf("%d, %i, %o, %u, %x, %X\n", i, i, i, i, i, i);
+	//ft_printf("%d, %i, %o, %u, %x, %X\n", i, i, i, i, i, i);
+	printf("%hd, %hhi, %ho, %hhu, %hx, %hhX\n", s, i, s, i, s, i);
+	return(0);
 }
 
 int		main(void)
@@ -39,8 +47,7 @@ int		main(void)
 	int	res[8];
 
 	res[0] = csp();
-	// res[1] = diouxx();
-	// res[2] = hhll();
+	res[1] = diouxx();
 	// res[3] = flL();
 	// res[4] = perc();
 	// res[5] = signs();

@@ -1,0 +1,19 @@
+c	character
+
+d	decimal (integer) (base 10)
+i	integer (base 10)
+o	octal (base 8)
+u	unsigned decimal (integer)	
+x	hex (base 16)
+X	unsigned int	converted to bold hex
+
+h	short
+hh	char
+l	long
+ll	long long
+
+f	floating point
+
+%%	print a %
+
+short length		-32768 to 32767
