@@ -2,6 +2,7 @@ c	character
 
 d	decimal (integer) (base 10)
 i	integer (base 10)
+
 o	octal (base 8)
 u	unsigned decimal (integer)	
 x	hex (base 16)
@@ -15,5 +16,14 @@ ll	long long
 f	floating point
 
 %%	print a %
++	print a + infront of positive numbers
+-	left justify
+
+%#o (Octal)	0 prefix inserted.
+%#x (Hex)	0x prefix added to non-zero values.
+%#X (Hex)	0X prefix added to non-zero values.
+%#e			Always show the decimal point.	  
+%#E			Always show the decimal point.
+%#f			Always show the decimal point.
 
 short length		-32768 to 32767

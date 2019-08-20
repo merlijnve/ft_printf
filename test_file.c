@@ -23,8 +23,8 @@ int		csp(void)
 	s = "test";
 	c = '!';
 
-	printf("CSP:\n%s, %c, %p\n\n", s, c, &c);
-	//ft_printf("%s, %c, %p", s, c, &c);
+	printf("real: %s, %c, %p\n", s, c, &c);
+	//ft_printf("ft_: %s, %c, %p", s, c, &c);
 	
 	return (0);
 }
@@ -34,12 +34,27 @@ int		diouxx(void)
 	char	i;
 	short	s;
 
-	s = -32769;
+	s = -32767;
 	i = 'a';
-	printf("%d, %i, %o, %u, %x, %X\n", i, i, i, i, i, i);
-	//ft_printf("%d, %i, %o, %u, %x, %X\n", i, i, i, i, i, i);
-	printf("%hd, %hhi, %ho, %hhu, %hx, %hhX\n", s, i, s, i, s, i);
+	printf("real: %d, %i, %o, %u, %x, %X\n", i, i, i, i, i, i);
+	//ft_printf("ft_: %d, %i, %o, %u, %x, %X\n", i, i, i, i, i, i);
+	printf("real: %hd, %hhi, %ho, %hhu, %hx, %hhX\n", s, i, s, i, s, i);
 	return(0);
+}
+
+int		perc(void)
+{
+	short	i;
+
+	i = 5;
+	printf("real: %d%%, %%%%%i%%%%%% %o%%\n", i, i, i);
+	//ft_printf("real: %d%%, %%%%%i%%%%%% %o%%\n", i, i, i);
+	return (0);
+}
+
+int		signs(void)
+{
+	
 }
 
 int		main(void)
@@ -49,7 +64,7 @@ int		main(void)
 	res[0] = csp();
 	res[1] = diouxx();
 	// res[3] = flL();
-	// res[4] = perc();
+	res[4] = perc();
 	// res[5] = signs();
 	// res[6] = fw();
 	// res[7] = prc();
