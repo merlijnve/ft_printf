@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/21 15:21:58 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/21 18:17:20 by jboer         ########   odam.nl         */
+/*   Updated: 2019/08/22 12:53:31 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ static char		*check_width(t_print *print, char *fmt)
 
 static char		*fillprint(t_print *print, char *fmt)
 {
-	while (!print->flagger)
+	while (!print->fid)
 	{
 		fmt++;
 		fmt = check_flags();
 		fmt = check_width();
-		fmt = check_flagger();
+		fmt = check_fid();
 	}
 }
 
