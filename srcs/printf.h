@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/22 12:53:22 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/08/22 16:16:06 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 # define PRINTF_H
 #include "../libft/libft.h"
 #include <stdarg.h>
+
+/*
+**	SPEC
+**	0	NULL	
+**	1	HH		CHAR
+**	2	H		SHORT
+**	3	L		LONG
+**	4	LL		LONG LONG
+*/
 
 typedef struct		s_print
 {
@@ -25,7 +34,7 @@ typedef struct		s_print
 	int				width;
 	int				prec;
 	char			fid;
-	int				conv;
+	int				spec;
 	char			precs;
 	char			widths;
 	char			*toprint;
