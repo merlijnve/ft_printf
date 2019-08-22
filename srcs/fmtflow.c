@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/21 15:21:58 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/22 16:09:15 by jboer         ########   odam.nl         */
+/*   Updated: 2019/08/22 17:59:41 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char		*check_width_prec(t_print *print, char *fmt)
 		while (*fmt >= '0' && *fmt <= '9')
 			fmt++;
 		if (*fmt == '.')
-		{	
+		{
 			print->width = ft_atoi(fmt);
 			while (*fmt >= '0' && *fmt <= '9')
 				fmt++;
@@ -37,11 +37,11 @@ static char		*check_flags(t_print *print, char *fmt)
 		if (*fmt == '#')
 			print->hash = 1;
 		if (*fmt == '0')
-			print->hash = 1;
+			print->zero = 1;
 		if (*fmt == '+')
 			print->plus = 1;
 		if (*fmt == '-')
-			print->plus = 1;
+			print->minus = 1;
 		if (*fmt == ' ')
 			print->space = 1;
 		fmt++;
