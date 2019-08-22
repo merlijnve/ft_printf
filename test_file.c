@@ -63,10 +63,24 @@ int		prec(void)
 
 	s = 65;
 	f = 18.73;
-	i = 147098098;
+	i = 14709;
 	printf("precision:\n");
-	printf("real: %4.1d, %8.7f, %hd\n", i, f, s);
+	printf("real: %4.6d, %8.7f, %hd\n", i, f, s);
 	//ft_printf("real: %4.1d, %8.7f, %hd\n", i, f, s);
+	return (0);
+}
+
+int		flL()
+{
+	float	f;
+	double	l;
+	int		i;
+
+	i = 1938;
+	f = 148.382;
+	l = 147123123;
+	printf("long floats:\n");
+	printf("real: %lf, %1.4lf, %.6i\n", f, l, i);
 	return (0);
 }
 
@@ -76,7 +90,7 @@ int		main(void)
 
 	res[0] = csp();
 	res[1] = diouxx();
-	// res[3] = flL();
+	res[3] = flL();
 	res[4] = perc();
 	// res[5] = signs();
 	// res[6] = fw();
