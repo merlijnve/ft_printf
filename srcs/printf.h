@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/22 16:18:01 by jboer         ########   odam.nl         */
+/*   Updated: 2019/08/27 18:00:56 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@
 **	4	LL		LONG LONG
 */
 
+/*
+**	FID
+**	c	0
+**	s	1
+**	p	2
+**	d	3
+**	i	4
+**	o	5
+**	u	6
+**	x	7
+**	X	8
+**	f	10
+**	%%	11
+*/
+
 typedef struct		s_print
 {
 	int				minus;
@@ -33,7 +48,7 @@ typedef struct		s_print
 	int				space;
 	int				width;
 	int				prec;
-	char			fid;
+	int				fid;
 	int				spec;
 	char			precs;
 	char			widths;
