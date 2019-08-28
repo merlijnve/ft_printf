@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/28 17:30:53 by jboer         ########   odam.nl         */
+/*   Updated: 2019/08/28 17:32:34 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ typedef struct		s_print
 	int				prec;
 	int				fid;
 	int				spec;
-	char			precs;
-	char			widths;
 	char			*toprint;
 	struct s_print	*next;
 }					t_print;
