@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:20:45 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/08/19 18:15:16 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/08/28 17:24:32 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,11 @@ int		main(void)
 {
 	int	res[8];
 
-	res[0] = csp();
+	//res[0] = csp();
 	res[1] = diouxx();
-	res[3] = flL();
-	res[4] = perc();
+	//res[3] = flL();
+	//res[4] = perc();
 	// res[5] = signs();
 	// res[6] = fw();
-	res[7] = prec();
+	//res[7] = prec();
 }
