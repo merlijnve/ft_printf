@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/27 18:00:56 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/08/28 15:23:22 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 /*
 **	SPEC
 **	0	NULL	
-**	1	HH		CHAR
-**	2	H		SHORT
-**	3	L		LONG
-**	4	LL		LONG LONG
+**	1	hh		CHAR
+**	2	h		SHORT
+**	3	l		LONG
+**	4	ll		LONG LONG
+**	5	L		LONG DOUBLE
 */
 
 /*
