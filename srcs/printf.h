@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/28 17:32:34 by jboer         ########   odam.nl         */
+/*   Updated: 2019/08/29 13:06:31 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct		s_print
 }					t_print;
 
 int			ft_printf(const char *fmt, ...);
-void		fmtflow(t_print *print, char *fmt, va_list ap);
+void		fmtstr_loop(t_print *print, char *fmt, va_list ap);
 
 #define ME			2
 
