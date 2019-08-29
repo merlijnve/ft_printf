@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:21:57 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/08/28 18:48:29 by jboer         ########   odam.nl         */
+/*   Updated: 2019/08/29 12:45:57 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int	print_string(t_print *print, char *fmt, va_list ap)
 		&& *fmt != 'u' && *fmt != 'X' && *fmt != 's' && *fmt != 'c'
 		&& *fmt != 'p' && *fmt)
 			fmt++;
-// mogelijkheid om buiten de string te komen!!
+		if (!*fmt)
+			return (0);
 		fmt++;
 	}
 	return (0);
