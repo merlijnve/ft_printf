@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 15:04:06 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/05/31 11:29:56 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/08/29 18:41:22 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ int					ft_mapdel(void **map);
 void				ft_putcmap(char **ar);
 void				ft_putimap(int **ar);
 int					ft_count_pointers(char **p);
+int					ft_longlongc(long long n);
+char				*ft_lltoa(long long n);
 
 #endif

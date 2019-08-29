@@ -6,7 +6,7 @@
 #    By: mvan-eng <mvan-eng@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/10 14:10:44 by mvan-eng       #+#    #+#                 #
-#    Updated: 2019/05/31 11:30:06 by mvan-eng      ########   odam.nl          #
+#    Updated: 2019/08/29 18:42:06 by jboer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ ft_putchar_fd.c ft_strchr.c ft_strdup.c ft_strmapi.c ft_strsplit.c \
 ft_isascii.c ft_memchr.c ft_putendl.c ft_strclr.c ft_strequ.c ft_strncat.c \
 ft_strstr.c ft_lstnew.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c \
 ft_lstmap.c ft_lncount.c ft_strndup.c ft_putcmap.c get_next_line.c ft_mapdel.c \
-ft_putimap.c ft_count_pointers.c
+ft_putimap.c ft_count_pointers.c ft_longlongc.c ft_lltoa.c
 
 OBJ = $(SRC:.c=.o)
 
