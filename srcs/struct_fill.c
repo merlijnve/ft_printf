@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:19:02 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/28 18:56:19 by jboer         ########   odam.nl         */
+/*   Updated: 2019/08/29 12:52:05 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char		*check_spec(t_print *print, char *fmt)
 {
-	if (*fmt == 'l')
+	if (*fmt == 'l' || *fmt == 'L')
 	{
 		print->spec = 3;
 		fmt++;
@@ -33,11 +33,6 @@ char		*check_spec(t_print *print, char *fmt)
 			print->spec = 1;
 			fmt++;
 		}
-	}
-	if (*fmt == 'L')
-	{
-		print->spec = 5;
-		fmt++;
 	}
 	return (fmt);
 }
