@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/29 18:46:25 by jboer         ########   odam.nl         */
+/*   Updated: 2019/08/29 18:48:50 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char		*i_to_str(long long n, t_print *print)
 	char		*str;
 
 	str = ft_lltoa(n);
-	
+	return (str);
 }
 
 char			*get_va_int(t_print *print, va_list ap)
