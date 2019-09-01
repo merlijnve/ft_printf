@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/29 13:06:31 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/01 21:29:59 by joris         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@
 */
 
 /*
+** FLAGS
+** 0	NULL
+** 1	HASH
+** 2	ZERO
+** 4	PLUS
+** 8	MINUS
+** 16	SPACE
+*/
+
+/*
 **	FID
 **	c	0
 **	s	1
@@ -42,14 +52,10 @@
 
 typedef struct		s_print
 {
-	int				minus;
-	int				plus;
-	int				hash;
-	int				zero;
-	int				space;
+	int				flags;
 	int				width;
 	int				prec;
-	int				fid;
+	char			fid;
 	int				spec;
 	char			*toprint;
 	struct s_print	*next;

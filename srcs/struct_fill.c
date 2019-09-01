@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:19:02 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/29 12:52:05 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/01 21:24:44 by joris         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ char		*check_fid(t_print *print, char *fmt)
 	*fmt == 's' || *fmt == 'p' || *fmt == 'n')
 		print->fid = *fmt;
 	fmt++;
+	return (fmt);
 }

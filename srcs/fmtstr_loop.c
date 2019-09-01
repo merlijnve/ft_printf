@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fmtflow.c                                          :+:    :+:            */
+/*   fmtstr_loop.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/21 15:21:58 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/22 17:59:41 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/01 21:28:31 by joris         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ static char		*check_flags(t_print *print, char *fmt)
 	*fmt == ' ')
 	{
 		if (*fmt == '#')
-			print->hash = 1;
+			print->flags = 1;
 		if (*fmt == '0')
-			print->zero = 1;
+			print->flags = 2;
 		if (*fmt == '+')
-			print->plus = 1;
+			print->flags = 4;
 		if (*fmt == '-')
-			print->minus = 1;
+			print->flags = 8;
 		if (*fmt == ' ')
-			print->space = 1;
+			print->flags = 16;
 		fmt++;
 	}
 	return (fmt);
