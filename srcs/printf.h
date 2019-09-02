@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/02 15:58:59 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/02 16:26:52 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 
 typedef struct		s_print
 {
-	int				flags[4];
+	int				flags[5];
 	int				width;
 	int				prec;
 	char			fid;
