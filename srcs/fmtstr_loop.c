@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/21 15:21:58 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/01 21:28:31 by joris         ########   odam.nl         */
+/*   Updated: 2019/09/02 13:48:43 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ static char		*check_flags(t_print *print, char *fmt)
 	*fmt == ' ')
 	{
 		if (*fmt == '#')
-			print->flags = 1;
+			print->flags[0] = 1;
 		if (*fmt == '0')
-			print->flags = 2;
+			print->flags[1] = 1;
 		if (*fmt == '+')
-			print->flags = 4;
+			print->flags[2] = 1;
 		if (*fmt == '-')
-			print->flags = 8;
+			print->flags[3] = 1;
 		if (*fmt == ' ')
-			print->flags = 16;
+			print->flags[4] = 1;
 		fmt++;
 	}
 	return (fmt);
