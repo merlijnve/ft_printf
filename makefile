@@ -6,7 +6,7 @@
 #    By: jboer <jboer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/08/19 16:21:30 by jboer          #+#    #+#                 #
-#    Updated: 2019/08/19 16:47:00 by jboer         ########   odam.nl          #
+#    Updated: 2019/09/02 17:53:35 by jboer         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME):
 	@make re -C libft/
-	@gcc -c $(FLAGS) $(SRCS) $(LIB)
+	@gcc -c $(FLAGS) $(SRCS) -I libft/libft.a
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@make clean
