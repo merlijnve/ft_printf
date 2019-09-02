@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/02 13:48:56 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/02 16:28:27 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@
 
 /*
 ** FLAGS
-** 0	NULL
-** 1	HASH
-** 2	ZERO
-** 4	PLUS
-** 8	MINUS
-** 16	SPACE
+** [0]	HASH
+** [1]	ZERO
+** [2]	PLUS
+** [3]	MINUS
+** [4]	SPACE
 */
 
 /*
