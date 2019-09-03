@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/02 17:33:05 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/02 19:01:41 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ typedef struct		s_print
 }					t_print;
 
 int			ft_printf(const char *fmt, ...);
-void		fmtstr_loop(t_print *print, char *fmt, va_list ap);
 void		get_va_chr(t_print *print, va_list ap);
-void		fmtflow(t_print *print, char *fmt, va_list ap);
+void		fmtflow(t_print *print, char *fmt);
 int			print_string(t_print *print, char *fmt, va_list ap);
+char		*fill_struct(t_print *print, char *fmt);
 
 #endif
