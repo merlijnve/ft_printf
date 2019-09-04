@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 18:43:55 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/04 12:44:44 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/04 12:47:34 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ static char		*check_flags(t_print *print, char *fmt)
 
 static char		*check_spec(t_print *print, char *fmt)
 {
-	if (*fmt == 'h' && *fmt + 1 = 'h')
+	if (*fmt == 'h' && *fmt + 1 == 'h')
 		print->spec = 1;
 	if (*fmt == 'h')
 		print->spec = 2;
 	if (*fmt == 'l')
 		print->spec = 3;
-	if (*fmt == 'l' && *fmt + 1 = 'l')
+	if (*fmt == 'l' && *fmt + 1 == 'l')
 		print->spec = 4;
 	if (*fmt == 'L')
 		print->spec = 5;
