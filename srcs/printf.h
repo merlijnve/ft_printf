@@ -69,9 +69,6 @@ void		fmtstr_loop(t_print *print, char *fmt, va_list ap);
 void		get_va_chr(t_print *print, va_list ap);
 void		fmtflow(t_print *print, char *fmt);
 int			print_string(t_print *print, char *fmt, va_list ap);
-<<<<<<< HEAD
-=======
 char		*fill_struct(t_print *print, char *fmt);
->>>>>>> e885663114b055a256092d9ffb9d7ef86811d92b
 
 #endif
