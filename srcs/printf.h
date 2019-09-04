@@ -6,11 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-<<<<<<< HEAD
-/*   Updated: 2019/09/02 17:33:05 by mvan-eng      ########   odam.nl         */
-=======
-/*   Updated: 2019/09/03 17:08:07 by mvan-eng      ########   odam.nl         */
->>>>>>> e885663114b055a256092d9ffb9d7ef86811d92b
+/*   Updated: 2019/09/04 11:26:27 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +65,6 @@ void		fmtstr_loop(t_print *print, char *fmt, va_list ap);
 void		get_va_chr(t_print *print, va_list ap);
 void		fmtflow(t_print *print, char *fmt);
 int			print_string(t_print *print, char *fmt, va_list ap);
-<<<<<<< HEAD
-=======
 char		*fill_struct(t_print *print, char *fmt);
->>>>>>> e885663114b055a256092d9ffb9d7ef86811d92b
 
 #endif
