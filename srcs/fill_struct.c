@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 18:43:55 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/02 18:52:30 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/04 12:44:44 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,14 @@ static char		*check_spec(t_print *print, char *fmt)
 
 static char		*check_fid(t_print *print, char *fmt)
 {
-	
+	if (*fmt == '%' || *fmt == 'd' || *fmt == 'i' || *fmt == 'u' ||
+	*fmt == 'o' || *fmt == 'x' || *fmt == 'X' || *fmt == 'f' ||
+	*fmt == 'F' || *fmt == 'e' || *fmt == 'E' || *fmt == 'g' ||
+	*fmt == 'G' || *fmt == 'a' || *fmt == 'A' || *fmt == 'c' ||
+	*fmt == 's' || *fmt == 'p' || *fmt == 'n')
+		print->fid = *fmt;
+	fmt++;
+	return (fmt);
 }
 
 char			*fill_struct(t_print *print, char *fmt)
