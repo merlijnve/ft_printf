@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fmtstr_loop.c                                      :+:    :+:            */
+/*   fill_struct.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jboer <jboer@student.codam.nl>               +#+                     */
+/*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/08/21 15:21:58 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/02 13:48:43 by jboer         ########   odam.nl         */
+/*   Created: 2019/09/02 18:43:55 by mvan-eng       #+#    #+#                */
+/*   Updated: 2019/09/02 18:52:30 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,26 @@ static char		*check_flags(t_print *print, char *fmt)
 	return (fmt);
 }
 
-static char		*fillprint(t_print *print, char *fmt)
+static char		*check_spec(t_print *print, char *fmt)
+{
+	if (*fmt == 'h' && *fmt + 1 = 'h')
+		print->spec = 1;
+	if (*fmt == 'h')
+		print->spec = 2;
+	if (*fmt == 'l')
+		print->spec = 3;
+	if (*fmt == 'l' && *fmt + 1 = 'l')
+		print->spec = 4;
+	if (*fmt == 'L')
+		print->spec = 5;
+}
+
+static char		*check_fid(t_print *print, char *fmt)
+{
+	
+}
+
+char			*fill_struct(t_print *print, char *fmt)
 {
 	fmt++;
 	fmt = check_flags(print, fmt);
@@ -57,25 +76,4 @@ static char		*fillprint(t_print *print, char *fmt)
 	fmt = check_spec(print, fmt);
 	fmt = check_fid(print, fmt);
 	return (fmt);
-}
-
-void			fmtflow(t_print *print, char *fmt, va_list ap)
-{
-	while (ft_strchr(fmt, '%'))
-	{
-		while (*fmt != '%')
-			fmt++;
-		fmt = fillprint(print, fmt);
-		if (ft_strchr(fmt, '%'))
-		{
-			print->next = ft_memalloc(sizeof(t_print));
-			if (!print)
-				exit(ME);
-			print = print->next;
-			print->next = NULL;
-			continue;
-		}
-		else
-			break ;
-	}
 }
