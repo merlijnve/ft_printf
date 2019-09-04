@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 18:43:55 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/04 12:47:34 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/04 13:04:32 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ static char		*check_spec(t_print *print, char *fmt)
 		print->spec = 4;
 	if (*fmt == 'L')
 		print->spec = 5;
+	while (*fmt == 'l' || *fmt == 'L' || *fmt == 'h')
+		fmt++;
+	return (fmt);
 }
 
 static char		*check_fid(t_print *print, char *fmt)
