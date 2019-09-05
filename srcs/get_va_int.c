@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/04 13:14:22 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/05 14:07:01 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,7 @@ static char		*i_to_str(long long n, t_print *print)
 	char		*str;
 
 	str = ft_lltoa(n);
-<<<<<<< HEAD
-	str = flags_to_str(str, print);
-=======
 	(void)print;
->>>>>>> f96804fdc7b41c7f318a21198b02fd98d92678b4
 	return (str);
 }
 
