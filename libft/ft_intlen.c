@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_llitoa.c                                        :+:    :+:            */
+/*   ft_intlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/09/05 19:39:56 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/05 19:54:01 by jboer         ########   odam.nl         */
+/*   Created: 2019/01/29 15:00:06 by jboer          #+#    #+#                */
+/*   Updated: 2019/02/25 15:27:26 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_lltoa(long long int n)
+int		ft_intlen(int n)
 {
-	int		intlen;
-	char	*strn;
-	int		i;
+	int len;
 
-	i = 0;
-	intlen = ft_llintlen(n);
-	strn = (char*)malloc(sizeof(char) * (intlen + 1));
-	if (strn == NULL)
-		return (NULL);
-	strn[intlen] = '\0';
-	if (n < (long long)0)
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n == -2147483648)
+		return (11);
+	if (n < 0)
 	{
-		n = n * (long long)-1;
-		intlen--;
-		strn[i] = '-';
-		i = 1;
+		len++;
+		n = n * -1;
 	}
-	strn = ft_longtos(strn, intlen, i, n);
-	return (strn);
+	while (n >= 1)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 15:04:06 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/05 13:59:12 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/05 20:10:08 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,10 @@ int					ft_longlongc(long long n);
 char				*ft_lltoa(long long n);
 int					ft_natoi(const char *str, int n);
 int					ft_datoi(const char *str, char d);
+void				ft_putnbrlong(long long int nb);
+int					ft_intlen(int n);
+char				*ft_intos(char *strn, int intlen, int i, int n);
+int					ft_llintlen(long long int n);
+char				*ft_longtos(char *strn, int intlen, int i, long long int n);
 
 #endif
