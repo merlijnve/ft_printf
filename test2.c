@@ -6,11 +6,12 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 19:05:38 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/03 18:00:04 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/04 12:53:03 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "printf.h"
 
 int		main(void)
 {
