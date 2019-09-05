@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_memalloc.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
+/*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/17 13:17:15 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/01/23 16:38:09 by mvan-eng      ########   odam.nl         */
+/*   Created: 2019/01/22 16:59:35 by jboer          #+#    #+#                */
+/*   Updated: 2019/01/23 11:32:59 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,11 @@
 
 void	*ft_memalloc(size_t size)
 {
-	int *res;
+	void *a;
 
-	res = (int *)malloc(size);
-	if (res == NULL)
+	a = malloc(size);
+	if (a == NULL)
 		return (NULL);
-	while (size > 0)
-	{
-		res[size - 1] = 0;
-		size--;
-	}
-	return ((void *)res);
+	ft_memset(a, 0, size);
+	return (a);
 }
