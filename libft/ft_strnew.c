@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/17 18:03:09 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/01/27 20:09:30 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/05 13:51:39 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char	*ft_strnew(size_t size)
 	char	*res;
 	int		i;
 
-	res = (char *)malloc((size + 1) * sizeof(char));
+	res = (char *)malloc(sizeof(char) * (size + 1));
+	ft_putstr("kech\n");
 	if (res == NULL)
 		return (NULL);
 	i = 0;

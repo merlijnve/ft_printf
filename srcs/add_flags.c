@@ -6,13 +6,13 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 12:49:06 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/02 12:57:17 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/04 13:12:28 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-char		*add_flags(char *str, t_print *print)
-{
+// char		*add_flags(char *str, t_print *print)
+// {
 	
-}
+// }

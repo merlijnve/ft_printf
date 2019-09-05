@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/30 14:45:26 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/02 16:47:04 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/05 13:50:54 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ static char	*make_str_wid(int w, char c, int min)
 
 void		get_va_chr(t_print *print, va_list ap)
 {
-	char	c;
+	int		c;
 	char	*res;
 
-	c = va_arg(ap, char);
+	c = va_arg(ap, int);
 	if (print->width > 1)
 		res = make_str_wid(print->width, c, print->flags[3]);
 	else
 	{
 		res = ft_strnew(1);
 		if (res == NULL)
-			exit(1);
-		res[0] = c;
+			exit(2);
+		res[0] = (char)c;
 	}
 	ft_putstr(res);
 	ft_strdel(&res);

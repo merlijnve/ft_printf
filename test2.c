@@ -6,14 +6,15 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 19:05:38 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/03 18:00:04 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/05 12:45:49 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "srcs/printf.h"
 
 int		main(void)
 {
-	printf("%c", 'a');
+	//printf("%c", 'a');
 	ft_printf("%c", 'a');
 }
