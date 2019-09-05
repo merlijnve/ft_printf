@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/29 18:32:39 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/29 18:43:36 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/05 15:41:18 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*ft_lltoa(long long n)
 	char			*str;
 	int				i;
 
+	ft_putstr("kech\n");
 	str = ft_setstr(n);
 	i = ft_digitc(n) - 1;
 	if (n >= 0 && n != -9223372036854775807)

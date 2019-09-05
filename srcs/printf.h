@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/04 14:25:31 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/05 15:35:44 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void		get_va_chr(t_print *print, va_list ap);
 void		fmtflow(t_print *print, char *fmt);
 int			print_string(t_print *print, char *fmt, va_list ap);
 char		*fill_struct(t_print *print, char *fmt);
+char		*get_va_int(t_print *print, va_list ap);
 
 #endif

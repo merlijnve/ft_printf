@@ -6,7 +6,7 @@
 #    By: jboer <jboer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/08/19 16:21:30 by jboer          #+#    #+#                 #
-#    Updated: 2019/09/05 14:03:54 by mvan-eng      ########   odam.nl          #
+#    Updated: 2019/09/05 15:35:31 by mvan-eng      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS = -Wall -Werror -Wextra
 
 CC = gcc
 
-FILES = ft_printf fmtflow print_string fill_struct
+FILES = ft_printf fmtflow print_string fill_struct get_va_chr
 
 SRCS = $(FILES:%=srcs/%.c)
 
