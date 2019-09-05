@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/04 11:26:27 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/04 14:25:31 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PRINTF_H
 #include "../libft/libft.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /*
 **	SPEC

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ftostr.c                                           :+:    :+:            */
+/*   get_va_flt.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/27 18:11:16 by jboer          #+#    #+#                */
-/*   Updated: 2019/08/28 18:59:42 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/04 13:13:07 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void			ftostr(t_print *print, va_list ap)
-{
+// void			ftostr(t_print *print, va_list ap)
+// {
 	
-}
+// }

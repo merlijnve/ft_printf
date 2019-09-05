@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:08:46 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/02 18:31:26 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/04 15:38:20 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			ft_printf(const char *fmt, ...)
 	if (!print)
 		exit(1);
 	print->next = NULL;
-	dup = ft_strdup(fmt);
+	dup = (char *)fmt;
 	fmtflow(print, dup);
 	print_string(print, dup, ap);
 	return (0);
