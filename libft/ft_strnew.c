@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strnew.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
+/*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/17 18:03:09 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/05 13:51:39 by mvan-eng      ########   odam.nl         */
+/*   Created: 2019/01/23 13:32:29 by jboer          #+#    #+#                */
+/*   Updated: 2019/02/01 17:25:23 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 char	*ft_strnew(size_t size)
 {
-	char	*res;
-	int		i;
+	char *str;
 
-	res = (char *)malloc(sizeof(char) * (size + 1));
-	ft_putstr("kech\n");
-	if (res == NULL)
+	str = malloc(size + 1);
+	if (str == NULL)
 		return (NULL);
-	i = 0;
-	while (i < (int)(size + 1))
-	{
-		res[i] = '\0';
-		i++;
-	}
-	return (res);
+	ft_memset(str, '\0', size + 1);
+	return (str);
 }
