@@ -17,6 +17,7 @@ static char		*i_to_str(long long n, t_print *print)
 	char		*str;
 
 	str = ft_lltoa(n);
+	str = flags_to_str(str, print);
 	return (str);
 }
 
