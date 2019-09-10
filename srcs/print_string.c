@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:21:57 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/05 15:37:01 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/09 12:24:42 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	print_arg(t_print *print, va_list ap)
 	// 	get_va_uns(print, ap);
 	// if (print->fid == 'f')
 	// 	get_va_flt(print, ap);
-	//if (print->fid == 'c')
-	//	get_va_chr(print, ap);
+	// if (print->fid == 'c')
+	// 	get_va_chr(print, ap);
 	// if (print->fid == 'p')
 	// 	get_va_ptr(print, ap);
 	// if (print->fid == 's')
@@ -40,9 +40,8 @@ int		print_string(t_print *print, char *fmt, va_list ap)
 		}
 		if (!*fmt)
 			return (0);
-		//ft_putstr("ejo");
 		print_arg(print, ap);
-		if (print->next)
+		if (print)
 			print = print->next;
 		else
 			return (0);

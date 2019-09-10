@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 19:05:38 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/05 15:37:19 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/09 16:44:25 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int		main(void)
 {
-	//printf("%c\n", 'a');
-	ft_printf("%d\n", 13445);
+	printf("%0-5i\n", 1234);
+	// ft_printf("%ld\n", 12345678910111212);
+	// ft_putstr("\n");
+	// ft_putnbrlong(12345678910111212);
 }
