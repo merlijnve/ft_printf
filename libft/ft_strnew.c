@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/23 13:32:29 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/05 14:07:58 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/09 14:01:21 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strnew(size_t size)
 	char *str;
 
 	str = malloc(size + 1);
-	ft_putstr("!!!!!!!\n");
 	if (str == NULL)
 		return (NULL);
 	ft_memset(str, '\0', size + 1);

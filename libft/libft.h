@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 15:04:06 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/05 20:10:08 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/09 16:28:26 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct		s_list
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
-
 }					t_list;
 
 size_t				ft_strlen(const char *s);
