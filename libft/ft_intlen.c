@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strnew.c                                        :+:    :+:            */
+/*   ft_intlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/23 13:32:29 by jboer          #+#    #+#                */
-<<<<<<< HEAD
-/*   Updated: 2019/09/05 16:50:09 by mvan-eng      ########   odam.nl         */
-=======
-/*   Updated: 2019/09/09 14:01:21 by jboer         ########   odam.nl         */
->>>>>>> 5c0be36defda5383583347746a69992ec4921b5a
+/*   Created: 2019/01/29 15:00:06 by jboer          #+#    #+#                */
+/*   Updated: 2019/02/25 15:27:26 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+int		ft_intlen(int n)
 {
-	char *str;
+	int len;
 
-	str = malloc(size + 1);
-	if (str == NULL)
-		return (NULL);
-	ft_memset(str, '\0', size + 1);
-	return (str);
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n == -2147483648)
+		return (11);
+	if (n < 0)
+	{
+		len++;
+		n = n * -1;
+	}
+	while (n >= 1)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
