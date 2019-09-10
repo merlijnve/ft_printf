@@ -6,7 +6,11 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:21:57 by mvan-eng       #+#    #+#                */
+<<<<<<< HEAD
 /*   Updated: 2019/09/09 12:24:42 by jboer         ########   odam.nl         */
+=======
+/*   Updated: 2019/09/05 20:07:27 by mvan-eng      ########   odam.nl         */
+>>>>>>> 6808557ad734212e6e3d6168ae8ee493adf22535
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +25,21 @@ void	print_arg(t_print *print, va_list ap)
 	// 	get_va_uns(print, ap);
 	// if (print->fid == 'f')
 	// 	get_va_flt(print, ap);
+<<<<<<< HEAD
 	// if (print->fid == 'c')
 	// 	get_va_chr(print, ap);
 	// if (print->fid == 'p')
 	// 	get_va_ptr(print, ap);
 	// if (print->fid == 's')
 	// 	get_va_str(print, ap);
+=======
+	if (print->fid == 'c')
+		get_va_chr(print, ap);
+	if (print->fid == 'p')
+		get_va_ptr(print, ap);
+	if (print->fid == 's')
+		get_va_str(print, ap);
+>>>>>>> 6808557ad734212e6e3d6168ae8ee493adf22535
 }
 
 int		print_string(t_print *print, char *fmt, va_list ap)
