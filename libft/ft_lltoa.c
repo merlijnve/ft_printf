@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/29 18:32:39 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/05 15:41:18 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/10 12:42:27 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_fill(long long i, long long n, char *str)
 {
 	while (i >= 0 && str[i] != '-')
 	{
-		str[i] = (n % 10) + 48;
+		str[i] = (n % 10) + '0';
 		n = n / 10;
 		i--;
 	}
@@ -38,7 +38,6 @@ char	*ft_lltoa(long long n)
 	char			*str;
 	int				i;
 
-	ft_putstr("kech\n");
 	str = ft_setstr(n);
 	i = ft_digitc(n) - 1;
 	if (n >= 0 && n != -9223372036854775807)

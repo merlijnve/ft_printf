@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/19 13:28:44 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/02/03 20:30:58 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/10 12:42:06 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_fill(int i, int n, char *str)
 {
 	while (i >= 0 && str[i] != '-')
 	{
-		str[i] = (n % 10) + 48;
+		str[i] = (n % 10) + '0';
 		n = n / 10;
 		i--;
 	}

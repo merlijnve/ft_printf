@@ -6,13 +6,18 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/30 14:45:26 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/05 15:36:43 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/05 19:25:01 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static char	*make_str_wid(int w, char c, int min)
+/*
+**	Adds width / checks LJ for left-justify
+**	LJ == 1, do left justify
+*/
+
+static char	*make_chr_wid(int w, char c, int lj)
 {
 	char	*res;
 	int		i;
@@ -26,7 +31,7 @@ static char	*make_str_wid(int w, char c, int min)
 		res[i] = ' ';
 		i++;
 	}
-	if (min == 1)
+	if (lj == 1)
 		res[0] = c;
 	else
 		res[w - 1] = c;
@@ -36,18 +41,15 @@ static char	*make_str_wid(int w, char c, int min)
 void		get_va_chr(t_print *print, va_list ap)
 {
 	int		c;
-	char	*res;
+	char	*s;
 
 	c = va_arg(ap, int);
 	if (print->width > 1)
-		res = make_str_wid(print->width, c, print->flags[3]);
-	else
 	{
-		res = (char *)malloc(sizeof(char) * 1);
-		if (res == NULL)
-			exit(2);
-		res[0] = (char)c;
+		s = make_chr_wid(print->width, c, print->flags[3]);
+		ft_putstr(s);
+		ft_strdel(&s);
 	}
-	ft_putchar(res[0]);
-	ft_strdel(&res);
+	else
+		ft_putchar(c);
 }
