@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/10 13:16:20 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/11 16:35:19 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static char		*add_spaces(char *str, t_print *print)
 		i++;
 	}
 	ft_memdel(&str);
+	print->check = 1;
 	return (buf);
 }
 
