@@ -6,17 +6,12 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 12:49:06 by jboer          #+#    #+#                */
-<<<<<<< HEAD
-/*   Updated: 2019/09/11 17:38:07 by jboer         ########   odam.nl         */
-=======
-/*   Updated: 2019/09/11 12:26:40 by mvan-eng      ########   odam.nl         */
->>>>>>> 383fb7cb2a2b7c593819f0141f492d816319887d
+/*   Updated: 2019/09/11 17:54:54 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-<<<<<<< HEAD
 static char *add_plus(char *str)
 {
 	char	*buf;
@@ -27,8 +22,8 @@ static char *add_plus(char *str)
 	i = 0;
 	buf = (char *)malloc(len + (size_t)2);
 	buf[len + 1] = '\0';
-	buf[i] == '+';
-	ft_strcpy(buf[i + 1], str);
+	buf[i] = '+';
+	ft_strcpy(&buf[i + 1], str);
 	ft_strdel(&str);
 	return (buf);
 }
@@ -54,7 +49,7 @@ static char	*left_justify(char *str)
 	return (str);
 }
 
-static char	*add_zero(char *str, int p)
+static char	*add_zeros(char *str, int p)
 {
 	int		i;
 
@@ -120,18 +115,3 @@ char		*add_flags(char *str, t_print *print)
 		str = add_space(str, print);
 	return (str);
 }
-=======
-// char		*add_flags(char *str, t_print *print)
-// {
-// 	char	*buf;
-
-// 	if (print->flags[2])
-// 	{
-		
-// 	}
-// 	if (print->flags[3])
-// 	{
-
-// 	}
-// }
->>>>>>> 383fb7cb2a2b7c593819f0141f492d816319887d

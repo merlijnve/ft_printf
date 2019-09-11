@@ -6,11 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-<<<<<<< HEAD
-/*   Updated: 2019/09/05 19:17:11 by jboer         ########   odam.nl         */
-=======
 /*   Updated: 2019/09/05 19:49:08 by mvan-eng      ########   odam.nl         */
->>>>>>> 6808557ad734212e6e3d6168ae8ee493adf22535
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,29 +57,22 @@ typedef struct		s_print
 	int				prec;
 	char			fid;
 	int				spec;
+	int				check;
 	char			*toprint;
 	struct s_print	*next;
 }					t_print;
 
-<<<<<<< HEAD
-int			ft_printf(const char *fmt, ...);
-void		fmtstr_loop(t_print *print, char *fmt, va_list ap);
-void		get_va_chr(t_print *print, va_list ap);
-void		fmtflow(t_print *print, char *fmt);
-int			print_string(t_print *print, char *fmt, va_list ap);
-char		*fill_struct(t_print *print, char *fmt);
-void		get_va_int(t_print *print, va_list ap);
-=======
+
 int					ft_printf(const char *fmt, ...);
 void				fmtstr_loop(t_print *print, char *fmt, va_list ap);
 void				get_va_chr(t_print *print, va_list ap);
 void				fmtflow(t_print *print, char *fmt);
 int					print_string(t_print *print, char *fmt, va_list ap);
 char				*fill_struct(t_print *print, char *fmt);
-char				*get_va_int(t_print *print, va_list ap);
+void				get_va_int(t_print *print, va_list ap);
 char				*ft_lltoa(long long n);
 void				get_va_str(t_print *print, va_list ap);
 void				get_va_ptr(t_print *print, va_list ap);
->>>>>>> 6808557ad734212e6e3d6168ae8ee493adf22535
+char				*add_flags(char *str, t_print *print);
 
 #endif
