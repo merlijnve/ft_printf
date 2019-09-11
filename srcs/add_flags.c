@@ -6,12 +6,17 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 12:49:06 by jboer          #+#    #+#                */
+<<<<<<< HEAD
 /*   Updated: 2019/09/11 17:38:07 by jboer         ########   odam.nl         */
+=======
+/*   Updated: 2019/09/11 12:26:40 by mvan-eng      ########   odam.nl         */
+>>>>>>> 383fb7cb2a2b7c593819f0141f492d816319887d
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
+<<<<<<< HEAD
 static char *add_plus(char *str)
 {
 	char	*buf;
@@ -115,3 +120,18 @@ char		*add_flags(char *str, t_print *print)
 		str = add_space(str, print);
 	return (str);
 }
+=======
+// char		*add_flags(char *str, t_print *print)
+// {
+// 	char	*buf;
+
+// 	if (print->flags[2])
+// 	{
+		
+// 	}
+// 	if (print->flags[3])
+// 	{
+
+// 	}
+// }
+>>>>>>> 383fb7cb2a2b7c593819f0141f492d816319887d

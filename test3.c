@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memalloc.c                                      :+:    :+:            */
+/*   test3.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jboer <jboer@student.codam.nl>               +#+                     */
+/*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/22 16:59:35 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/11 15:44:34 by mvan-eng      ########   odam.nl         */
+/*   Created: 2019/09/11 11:27:27 by mvan-eng       #+#    #+#                */
+/*   Updated: 2019/09/11 12:08:44 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 
-void	*ft_memalloc(size_t size)
+int		main(void)
 {
-	void *a;
+	char *s;
 
-	a = malloc(size);
-	if (a == NULL)
-		return (NULL);
-	ft_memset(a, 0, size);
-	return (a);
+	s = ft_nbrbase(256*256, 16);
+	ft_putstr(s);
 }

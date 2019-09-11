@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 15:04:06 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/09 16:28:26 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/11 16:41:40 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,7 @@ int					ft_intlen(int n);
 char				*ft_intos(char *strn, int intlen, int i, int n);
 int					ft_llintlen(long long int n);
 char				*ft_longtos(char *strn, int intlen, int i, long long int n);
+char				*ft_nbrbase(long long l, int b);
+void				ft_str_to_uppercase(char *s);
 
 #endif

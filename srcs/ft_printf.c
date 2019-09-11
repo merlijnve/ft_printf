@@ -6,11 +6,24 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:08:46 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/05 15:47:34 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/11 16:29:57 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+static void	free_struct(t_print *print)
+{
+	t_print *temp;
+
+	while (print)
+	{
+		temp = print;
+		print = print->next;
+		ft_memdel((void **)&temp);
+	}
+	ft_memdel((void **)print);
+}
 
 int			ft_printf(const char *fmt, ...)
 {
@@ -26,6 +39,7 @@ int			ft_printf(const char *fmt, ...)
 	dup = (char *)fmt;
 	fmtflow(print, dup);
 	print_string(print, dup, ap);
+	free_struct(print);
 	va_end(ap);
 	return (0);
 }
