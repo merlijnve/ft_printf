@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   add_flags.c                                        :+:    :+:            */
+/*   test3.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jboer <jboer@student.codam.nl>               +#+                     */
+/*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/09/02 12:49:06 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/11 12:26:40 by mvan-eng      ########   odam.nl         */
+/*   Created: 2019/09/11 11:27:27 by mvan-eng       #+#    #+#                */
+/*   Updated: 2019/09/11 12:08:44 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft/libft.h"
 
-// char		*add_flags(char *str, t_print *print)
-// {
-// 	char	*buf;
+int		main(void)
+{
+	char *s;
 
-// 	if (print->flags[2])
-// 	{
-		
-// 	}
-// 	if (print->flags[3])
-// 	{
-
-// 	}
-// }
+	s = ft_nbrbase(256*256, 16);
+	ft_putstr(s);
+}

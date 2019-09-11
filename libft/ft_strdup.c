@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:30:56 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/02/01 16:12:46 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/11 13:26:40 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ char	*ft_strdup(const char *src)
 
 	x = 0;
 	length = 1 + ft_strlen(src);
-	dup = (char *)malloc(length * sizeof(char));
+	dup = (char *)malloc(length * sizeof(char) + 1);
 	if (dup == NULL)
 		return (NULL);
 	while (x < length)
 	{
 		dup[x] = src[x];
-		x++;
 		dup[x + 1] = '\0';
+		x++;
 	}
 	return (dup);
 }
