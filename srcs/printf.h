@@ -37,17 +37,7 @@
 
 /*
 **	FID
-**	c	0
-**	s	1
-**	p	2
-**	d	3
-**	i	4
-**	o	5
-**	u	6
-**	x	7
-**	X	8
-**	f	10
-**	%%	11
+**	saved as ascii value
 */
 
 typedef struct		s_print
@@ -58,6 +48,7 @@ typedef struct		s_print
 	char			fid;
 	int				spec;
 	int				check;
+	long long		value;
 	char			*toprint;
 	struct s_print	*next;
 }					t_print;
@@ -74,5 +65,6 @@ char				*ft_lltoa(long long n);
 void				get_va_str(t_print *print, va_list ap);
 void				get_va_ptr(t_print *print, va_list ap);
 char				*add_flags(char *str, t_print *print);
+char				*fill_width(char *str, t_print *print);
 
 #endif

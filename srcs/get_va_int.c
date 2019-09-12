@@ -6,53 +6,81 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/11 17:56:49 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/12 12:16:34 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static char		*add_spaces(char *str, t_print *print)
+static void		move_plusmin(char *str, char c, t_print *print)
+{
+	int i;
+
+	i = 0;
+	if (print->flags[1] == 1 || print->flags[4] == 1)
+	{
+		if (print->value < 0)
+			str[i] = '-';
+		if (print->value > 0 && print->flags[2])
+			str[i] = '+';
+		if (print->value > 0 && print->flags[4])
+			str[i] = ' ';
+		i++;
+		while (str[i] == c)
+			i++;
+		if (str[i] == '-' || str[i] == ' ' || str[i] == '+')
+			str[i] = c;
+	}
+}
+
+char		*fill_width(char *str, t_print *print)
 {
 	char		*buf;
-	int			i;
+	size_t		slen;
+	char		c;
 
-	buf = ft_strnew((size_t)print->width);
-	ft_memset(buf, ' ', print->width);
-	i = print->width - ft_strlen(str);
-	while (buf[i])
-	{
-		buf[i] = *str;
-		str++;
-		i++;
-	}
-	ft_strdel(&str);
-	print->check = 1;
+	c = ' ';
+	if (print->flags[1] == 1)
+		c = '0';
+	slen = ft_strlen(str);
+	buf = ft_strnew(print->width);
+	ft_memset((void *)buf, c, print->width);
+	if (print->flags[3] == 1)
+		ft_strncpy(buf, str, slen);
+	else
+		ft_strncpy(&buf[print->width - slen], str, slen);
+	move_plusmin(buf, c, print);
 	return (buf);
 }
 
-static char		*i_to_str(long long n, t_print *print)
+static void		i_to_str(long long n, t_print *print)
 {
 	char		*str;
+	char		*t;
 
 	str = ft_lltoa(n);
-	if (print->width > (int)ft_strlen(str))
-		str = add_spaces(str, print);
-	str = add_flags(str, print);
-	(void)print;
-	return (str);
+	print->value = n;
+	t = add_flags(str, print);
+	if (print->width > (int)ft_strlen(t))
+	{
+		str = t;
+		t = fill_width(str, print);
+	}
+	ft_strdel(&str);
+	ft_putstr(t);
+	ft_strdel(&t);
 }
 
 void			get_va_int(t_print *print, va_list ap)
 {
 	if (print->spec == 0)
-		ft_putstr(i_to_str((long long)va_arg(ap, int), print));
+		i_to_str((long long)va_arg(ap, int), print);
 	if (print->spec == 1)
-		ft_putstr(i_to_str((long long)va_arg(ap, int), print));
+		i_to_str((long long)va_arg(ap, int), print);
 	if (print->spec == 2)
-		ft_putstr(i_to_str((long long)va_arg(ap, int), print));
+		i_to_str((long long)va_arg(ap, int), print);
 	if (print->spec == 3)
-		ft_putstr(i_to_str((long long)va_arg(ap, long int), print));
+		i_to_str((long long)va_arg(ap, long int), print);
 	if (print->spec == 4)
-		ft_putstr(i_to_str((long long)va_arg(ap, long long), print));
+		i_to_str((long long)va_arg(ap, long long), print);
 }
