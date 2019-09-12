@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_ints.c                                          :+:    :+:            */
+/*   ft_intos.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 10:44:05 by jboer          #+#    #+#                */
-/*   Updated: 2019/02/04 10:59:57 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/10 13:55:27 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_intos(char *strn, int intlen, int i, int n)
+char		*ft_intos(char *strn, int intlen, int i, int n)
 {
 	i = intlen + i;
 	while (intlen > 0)
