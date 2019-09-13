@@ -66,5 +66,6 @@ void				get_va_str(t_print *print, va_list ap);
 void				get_va_ptr(t_print *print, va_list ap);
 char				*add_flags(char *str, t_print *print);
 char				*fill_width(char *str, t_print *print);
+void				get_va_uns(t_print *print, va_list ap);
 
 #endif
