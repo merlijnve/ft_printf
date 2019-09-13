@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/13 11:00:28 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/13 14:05:24 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/13 14:17:33 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char		*make_width_hash(t_print *print, int rest, char *str)
 	return (temp);
 }
 
-char		*make_width_base(t_print *print, int base, char *str)
+char			*make_width_base(t_print *print, int base, char *str)
 {
 	int		rest;
 	char	*t;
