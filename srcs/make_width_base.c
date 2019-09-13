@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/13 11:00:28 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/13 12:23:55 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/13 14:05:24 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,7 @@ static char		*make_width_hash(t_print *print, int rest, char *str)
 	ft_memset((void *)t, ' ', print->width);
 	if (print->flags[1] == 1 && print->flags[3] != 1)
 		ft_memset((void *)t, '0', print->width);
-	//if (print->flags[1] == 1)
 	place_prepos_zero(print, rest, str, t);
-	//else
-	//	place_prepos(print, rest, str, t);
 	return (temp);
 }
 
