@@ -6,11 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/23 13:32:29 by jboer          #+#    #+#                */
-<<<<<<< HEAD
-/*   Updated: 2019/09/11 17:53:41 by jboer         ########   odam.nl         */
-=======
-/*   Updated: 2019/09/11 19:28:23 by mvan-eng      ########   odam.nl         */
->>>>>>> d4a95caa5a4dbfb891fa1b4f0aa32328b35b1f02
+/*   Updated: 2019/09/13 12:14:43 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

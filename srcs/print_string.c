@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:21:57 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/12 12:50:09 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/12 15:35:46 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	print_arg(t_print *print, va_list ap)
 {
 	if (print->fid == 'd' || print->fid == 'i')
 		get_va_int(print, ap);
-	if (print->fid == 'o')
-		get_va_base();
+	if (print->fid == 'o' || print->fid == 'x' || print->fid == 'X')
+		get_va_base(print, ap);
 	// 	get_va_uns(print, ap);
 	// if (print->fid == 'f')
 	// 	get_va_flt(print, ap);
