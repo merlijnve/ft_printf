@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/05 19:39:56 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/11 20:05:24 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/12 13:18:38 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_lltoa(long long int n)
 
 	i = 0;
 	intlen = ft_llintlen(n);
-	strn = (char*)malloc(sizeof(char) * (intlen + 1));
+	strn = (char *)malloc(sizeof(char) * (intlen + 1));
 	if (strn == NULL)
 		return (NULL);
 	strn[intlen] = '\0';

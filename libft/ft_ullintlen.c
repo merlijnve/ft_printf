@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strnew.c                                        :+:    :+:            */
+/*   ft_ullintlen.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/23 13:32:29 by jboer          #+#    #+#                */
-<<<<<<< HEAD
-/*   Updated: 2019/09/11 17:53:41 by jboer         ########   odam.nl         */
-=======
-/*   Updated: 2019/09/11 19:28:23 by mvan-eng      ########   odam.nl         */
->>>>>>> d4a95caa5a4dbfb891fa1b4f0aa32328b35b1f02
+/*   Created: 2019/09/12 13:19:14 by jboer          #+#    #+#                */
+/*   Updated: 2019/09/12 13:23:34 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+int		ft_ullintlen(unsigned long long n)
 {
-	char *str;
+	int len;
 
-	str = malloc(size + 1);
-	if (str == NULL)
-		return (NULL);
-	ft_memset(str, '\0', size + 1);
-	return (str);
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n >= (unsigned long long)1)
+	{
+		n = n / (unsigned long long)10;
+		len++;
+	}
+	return (len);
 }

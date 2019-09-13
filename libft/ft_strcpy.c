@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 17:01:44 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/01/30 21:03:53 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/11 12:43:09 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t i;
-	size_t ln;
 
-	ln = ft_strlen((char *)src);
 	i = 0;
 	while (src[i] != '\0')
 	{
