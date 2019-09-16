@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 15:04:06 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/12 13:31:52 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/16 19:13:51 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,6 @@ void				ft_str_to_uppercase(char *s);
 int					ft_charindex(const char *str, char c);
 int					ft_ullintlen(unsigned long long n);
 char				*ft_ulltoa(unsigned long long n);
+char				*ft_fltoa(long double f, int prec);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 18:22:57 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/12 15:20:21 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/13 16:17:22 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char		*fill_width_u(char *str, t_print *print)
 	return (buf);
 }
 
-static void	ui_to_str(unsigned long long n, t_print *print)
+static void		ui_to_str(unsigned long long n, t_print *print)
 {
 	char	*str;
 	char	*buf;
