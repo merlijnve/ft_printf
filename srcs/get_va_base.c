@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/13 14:04:51 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/16 15:17:26 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		b_to_str(long long n, t_print *print)
 	if (print->fid == 'X')
 		ft_str_to_uppercase(t);
 	ft_putstr(t);
-	ft_strdel(&t);
+	print->printed = ft_strlen(t);
 }
 
 void			get_va_base(t_print *print, va_list ap)

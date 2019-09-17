@@ -6,7 +6,7 @@
 #    By: jboer <jboer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/08/19 16:21:30 by jboer          #+#    #+#                 #
-#    Updated: 2019/09/05 15:35:31 by mvan-eng      ########   odam.nl          #
+#    Updated: 2019/09/16 13:11:05 by mvan-eng      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,22 @@ FLAGS = -Wall -Werror -Wextra
 
 CC = gcc
 
-FILES = ft_printf fmtflow print_string fill_struct get_va_chr
+FILES = ft_printf fmtflow print_string fill_struct get_va_chr add_flags \
+fill_struct get_va_base get_va_int get_va_ptr get_va_str get_va_uns \
+make_width_base print_perc get_va_flt
+
+LIBFT = ft_atoi ft_lltoa ft_memalloc ft_memdel ft_memset ft_nbrbase ft_putchar\
+ft_putstr ft_str_to_uppercase ft_strchr ft_strcpy ft_strdel ft_strdup \
+ft_strjoin ft_strlen ft_strncpy ft_strnew ft_ulltoa ft_isdigit ft_llintlen \
+ft_longtos ft_ullintlen
 
 SRCS = $(FILES:%=srcs/%.c)
 
+SRCSL = $(LIBFT:%=libft/%.c)
+
 OBJ = $(FILES:%=%.o)
+
+OBJL = $(LIBFT:%=%.o)
 
 LIB = libft/libft.a
 
@@ -28,17 +39,17 @@ all: $(NAME)
 
 $(NAME):
 	@make re -C libft/
-	@gcc -c $(FLAGS) $(SRCS) -I libft/libft.a
-	@ar rc $(NAME) $(OBJ)
+	@gcc -c $(FLAGS) $(SRCS) $(SRCSL) -I $(LIB)
+	@ar rc $(NAME) $(OBJ) $(OBJL)
 	@ranlib $(NAME)
-	@make clean
 	@echo "libftprintf.a created"
 
 clean:
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ) $(OBJL)
 
 fclean: clean
 	@rm -f $(NAME)
+	@make fclean -C libft/
 	@echo "libftprintf.a removed"
 
 re: fclean all

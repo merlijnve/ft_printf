@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 18:22:57 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/12 15:20:21 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/16 15:19:20 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char		*fill_width_u(char *str, t_print *print)
 	return (buf);
 }
 
-static void	ui_to_str(unsigned long long n, t_print *print)
+static void		ui_to_str(unsigned long long n, t_print *print)
 {
 	char	*str;
 	char	*buf;
@@ -44,24 +44,20 @@ static void	ui_to_str(unsigned long long n, t_print *print)
 		ft_strdel(&buf);
 	}
 	ft_putstr(str);
+	print->printed = ft_strlen(str);
 	ft_strdel(&str);
 }
 
-void		get_va_uns(t_print *print, va_list ap)
+void			get_va_uns(t_print *print, va_list ap)
 {
 	if (print->spec == 0)
-		ui_to_str((unsigned long long)va_arg
-		(ap, unsigned int), print);
+		ui_to_str((unsigned long long)va_arg(ap, unsigned int), print);
 	if (print->spec == 1)
-		ui_to_str((unsigned long long)va_arg
-		(ap, unsigned int), print);
+		ui_to_str((unsigned long long)va_arg(ap, unsigned int), print);
 	if (print->spec == 2)
-		ui_to_str((unsigned long long)va_arg
-		(ap, unsigned int), print);
+		ui_to_str((unsigned long long)va_arg(ap, unsigned int), print);
 	if (print->spec == 3)
-		ui_to_str((unsigned long long)va_arg
-		(ap, unsigned long int), print);
+		ui_to_str((unsigned long long)va_arg(ap, unsigned long int), print);
 	if (print->spec == 4)
-		ui_to_str((unsigned long long)va_arg
-		(ap, unsigned long long), print);
+		ui_to_str((unsigned long long)va_arg(ap, unsigned long long), print);
 }

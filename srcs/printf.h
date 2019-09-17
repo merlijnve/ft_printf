@@ -1,4 +1,4 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
 /*   printf.h                                           :+:    :+:            */
@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/05 19:49:08 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/17 12:20:54 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ typedef struct		s_print
 	int				spec;
 	int				check;
 	long long		value;
-	char			*toprint;
+	size_t			printed;
 	struct s_print	*next;
 }					t_print;
-
 
 int					ft_printf(const char *fmt, ...);
 void				fmtstr_loop(t_print *print, char *fmt, va_list ap);
@@ -62,7 +61,7 @@ int					print_string(t_print *print, char *fmt, va_list ap);
 char				*fill_struct(t_print *print, char *fmt);
 void				get_va_int(t_print *print, va_list ap);
 char				*ft_lltoa(long long n);
-void				get_va_str(t_print *print, va_list ap);
+int					get_va_str(t_print *print, va_list ap);
 void				get_va_ptr(t_print *print, va_list ap);
 char				*add_flags(char *str, t_print *print);
 char				*fill_width(char *str, t_print *print);
@@ -70,5 +69,6 @@ void				get_va_base(t_print *print, va_list ap);
 char				*make_width_base(t_print *print, int base, char *str);
 void				get_va_uns(t_print *print, va_list ap);
 void				print_perc(t_print *print);
+void				get_va_flt(t_print *print, va_list ap);
 
 #endif
