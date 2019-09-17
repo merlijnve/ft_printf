@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/17 15:08:10 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/17 15:16:12 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,5 @@ void			get_va_int(t_print *print, va_list ap)
 	if (print->spec == 3)
 		i_to_str((long)va_arg(ap, long int), print);
 	if (print->spec == 4)
-		i_to_str((long long)va_arg(ap, long long), print);
+		i_to_str(va_arg(ap, long long), print);
 }
