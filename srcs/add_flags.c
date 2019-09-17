@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 12:49:06 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/13 14:05:35 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/16 18:10:00 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*add_plus(char *str)
 	int		len;
 
 	len = (int)ft_strlen(str);
-	buf = ft_strnew(len + 2);
+	buf = ft_strnew(len);
 	buf[0] = '+';
 	ft_strncpy(&buf[1], str, ft_strlen(str));
 	ft_strdel(&str);
@@ -31,9 +31,9 @@ static char	*add_space(char *str)
 	int		len;
 
 	len = (int)ft_strlen(str);
-	buf = ft_strnew(len + 2);
+	buf = ft_strnew(len);
 	buf[0] = ' ';
-	ft_strcpy(&buf[1], str);
+	ft_strncpy(&buf[1], str, ft_strlen(str));
 	ft_strdel(&str);
 	return (buf);
 }

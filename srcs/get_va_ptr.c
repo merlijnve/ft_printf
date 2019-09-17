@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/05 19:43:15 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/11 14:35:05 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/16 15:21:09 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,13 @@ void		get_va_ptr(t_print *print, va_list ap)
 	p = va_arg(ap, unsigned long);
 	res = ft_nbrbase(p, 16);
 	if (print->width > 14)
-	{
 		res = make_ptr_wid(print->width, res, print->flags[3]);
-	}
 	else
+	{
 		ft_putstr("0x");
+		print->printed = 2;
+	}
 	ft_putstr(res);
+	print->printed += ft_strlen(res);
 	ft_strdel(&res);
 }

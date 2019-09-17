@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/05 19:39:56 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/12 13:18:38 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/17 15:05:12 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ char	*ft_lltoa(long long int n)
 	strn[intlen] = '\0';
 	if (n < (long long)0)
 	{
+		if (n == -9223372036854775808)
+		{
+			ft_strdel(&strn);
+			strn = ft_strdup("-9223372036854775808");
+			return (strn);
+		}
 		n = n * (long long)-1;
 		intlen--;
 		strn[i] = '-';

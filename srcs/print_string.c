@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:21:57 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/13 15:12:52 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/16 20:05:43 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	print_arg(t_print *print, va_list ap)
 		get_va_base(print, ap);
 	if (print->fid == 'u')
 		get_va_uns(print, ap);
-	// if (print->fid == 'f')
-	// 	get_va_flt(print, ap);
+	if (print->fid == 'f')
+		get_va_flt(print, ap);
 	if (print->fid == 'c')
 		get_va_chr(print, ap);
 	if (print->fid == 'p')
@@ -32,29 +32,44 @@ void	print_arg(t_print *print, va_list ap)
 		print_perc(print);
 }
 
+int		print_chars(char *fmt)
+{
+	int	printed_chars;
+
+	printed_chars = 0;
+	while (*fmt && *fmt != '%')
+	{
+		ft_putchar(*fmt);
+		printed_chars += 1;
+		fmt++;
+	}
+	return (printed_chars);
+}
+
 int		print_string(t_print *print, char *fmt, va_list ap)
 {
+	int	printed_chars;
+	int	t;
+
+	printed_chars = 0;
 	while (*fmt)
 	{
-		while (*fmt && *fmt != '%')
-		{
-			ft_putchar(*fmt);
-			fmt++;
-		}
+		t = print_chars(fmt);
+		fmt += t;
+		printed_chars += t;
 		if (!*fmt)
-			return (0);
+			return (printed_chars);
 		print_arg(print, ap);
-		if (print)
-			print = print->next;
-		else
+		if (!print)
 			return (0);
+		print = print->next;
 		while (*fmt != 'd' && *fmt != 'i' && *fmt != 'o' && *fmt != 'x'
 		&& *fmt != 'u' && *fmt != 'X' && *fmt != 's' && *fmt != 'c'
 		&& *fmt != 'p' && *fmt)
 			fmt++;
 		if (!*fmt)
-			return (0);
+			return (printed_chars);
 		fmt++;
 	}
-	return (0);
+	return (printed_chars);
 }
