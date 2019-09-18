@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_straddtofront.c                                 :+:    :+:            */
+/*   ft_endcharcws.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/09/18 15:42:28 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/18 19:48:31 by jboer         ########   odam.nl         */
+/*   Created: 2019/09/18 15:16:01 by jboer          #+#    #+#                */
+/*   Updated: 2019/09/18 15:26:36 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_straddtofront(char *str, char *add)
+int		ft_endcharcws(char *str, char c, char skip)
 {
-	char	*buf;
-	size_t	addl;
+	int	count;
 
-	addl = ft_strlen(add);
-	buf = ft_strnew(ft_strlen(str) + addl);
-	if (buf == NULL)
-		return (NULL);
-	ft_strcpy(&buf[addl], str);
-	ft_strncpy(buf, add, addl);
-	ft_strdel(&str);
-	return (buf);
+	count = 0;
+	while (*str)
+	{
+		while (*str && (*str == c || (*str == skip && str[1] == c)))
+		{
+			count++;
+			str++;
+		}
+		if (*str)
+			count = 0;
+	}
+	return (count);
 }
