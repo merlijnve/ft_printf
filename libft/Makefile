@@ -6,7 +6,7 @@
 #    By: mvan-eng <mvan-eng@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/10 14:10:44 by mvan-eng       #+#    #+#                 #
-#    Updated: 2019/09/18 19:41:32 by mvan-eng      ########   odam.nl          #
+#    Updated: 2019/09/18 19:46:45 by mvan-eng      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ ft_lstmap.c ft_lncount.c ft_strndup.c ft_putcmap.c get_next_line.c ft_mapdel.c \
 ft_putimap.c ft_count_pointers.c ft_longlongc.c ft_lltoa.c ft_datoi.c \
 ft_nbrbase.c ft_natoi.c ft_putnbrlong.c ft_intlen.c ft_intos.c ft_longtos.c \
 ft_llintlen.c ft_str_to_uppercase.c ft_charindex.c ft_ulltoa.c ft_ullintlen.c \
-ft_fltoa.c
+ft_fltoa.c ft_endcharcws.c ft_straddtofront.c ft_straddtoend.c
 
 OBJ = $(SRC:.c=.o)
 
