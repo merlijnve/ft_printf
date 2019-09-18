@@ -6,7 +6,11 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
+<<<<<<< HEAD
 /*   Updated: 2019/09/18 12:58:04 by jboer         ########   odam.nl         */
+=======
+/*   Updated: 2019/09/18 17:51:32 by mvan-eng      ########   odam.nl         */
+>>>>>>> 80e98dc10aab7388da889f3bb84a36fa679727b0
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +54,25 @@ char			*fill_width(char *str, t_print *print)
 	else
 		ft_strncpy(&buf[print->width - slen], str, slen);
 	move_plusmin(buf, c, print);
+	ft_strdel(&str);
 	return (buf);
+}
+
+static char		*add_precision(char *str, t_print *print)
+{
+	int		len;
+	char	*res;
+	char	*head;
+
+	len = ft_strlen(str);
+	if (len >= print->prec)
+		return (str);
+	res = ft_strnew(print->prec);
+	head = res;
+	res = ft_memset(res, '0', print->prec);
+	res = ft_strncpy(&res[print->prec - len], str, len);
+	ft_strdel(&str);
+	return (head);
 }
 
 static void		i_to_str(long long n, t_print *print)
@@ -61,19 +83,19 @@ static void		i_to_str(long long n, t_print *print)
 	str = ft_lltoa(n);
 	print->value = n;
 	t = add_flags(str, print);
-	if (print->width > (int)ft_strlen(t))
-	{
-		str = t;
-		t = fill_width(str, print);
-	}
-	ft_putstr(t);
-	print->printed = ft_strlen(t);
+	str = t;
+	if ((int)ft_strlen(str) < print->prec)
+		str = add_precision(str, print);
+	if (print->width > (int)ft_strlen(str))
+		str = fill_width(str, print);
+	ft_putstr(str);
+	print->printed = ft_strlen(str);
 }
 
 void			get_va_int(t_print *print, va_list ap)
 {
 	if (print->spec == 0)
-		i_to_str((long long)va_arg(ap, int), print);
+		i_to_str((int)va_arg(ap, int), print);
 	if (print->spec == 1)
 		i_to_str((char)va_arg(ap, int), print);
 	if (print->spec == 2)
