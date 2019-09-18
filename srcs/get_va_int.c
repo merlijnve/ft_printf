@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/17 15:16:12 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/18 12:58:04 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ static void		i_to_str(long long n, t_print *print)
 	char		*t;
 
 	str = ft_lltoa(n);
-	ft_putendl(str);
 	print->value = n;
 	t = add_flags(str, print);
 	if (print->width > (int)ft_strlen(t))
