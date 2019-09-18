@@ -5,101 +5,123 @@
 /*                                                     +:+                    */
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/09/13 15:16:20 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/17 17:47:09 by jboer         ########   odam.nl         */
+/*   Created: 2019/09/18 13:02:13 by jboer          #+#    #+#                */
+/*   Updated: 2019/09/18 17:47:25 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
-static char				*round_up(int j, char *str, long double f)
+static char		*round_up(char *str, int prec, long double f, int neg)
 {
-	int					n;
-	char				*buf;
+	int			n;
 
-	buf = str;
-	f = f * (long double)10;
-	n = (int)f;
-	if (n >= 5)
-	{
-		while (j >= 0 && (str[j] == '9' || str[j] == '.'))
-		{
-			if (str[j] != '.')
-				str[j] = '0';
-			j--;
-		}
-		if (j == -1)
-		{
-			buf = ft_strnew(ft_strlen(str) + 1);
-			ft_strcpy(&buf[1], str);
-			buf[0] = '1';
-			ft_strdel(&str);
-		}
-		else
-			buf[j] = buf[j] + 1;
-	}
-	return (buf);
-}
-
-static char				*add_prec(char *str, int prec, long double f)
-{
-	int					i;
-	int					j;
-
-	j = 0;
-	i = 0;
-	while (str[j])
-		j++;
-	str[j] = '.';
-	j++;
-	while (prec)
+	while (prec > -1)
 	{
 		f = f * (long double)10;
-		i = (int)f;
-		f -= (long double)i;
-		str[j] = i + '0';
 		prec--;
-		j++;
 	}
-	str = round_up(j - 1, str, f);
+	n = (int)f;
+	if (n % 10 >= 5 || n % 10 <= -5)
+	{
+		n = ft_strlen(str);
+		while (n > 0 && (str[n - 1] == '9' || str[n - 1] == '.'))
+		{
+			if (str[n - 1] != '.')
+				str[n - 1] = '0';
+			n--;
+		}
+		if (n == 0 && neg == 1)
+			str = ft_straddtofront(str, "-1");
+		if (n == 0 && neg == 0)
+			str = ft_straddtofront(str, "1");
+		else if (n)
+			str[n - 1] = str[n - 1] + 1;
+	}
 	return (str);
 }
 
-static char				*no_prec(char *str, long double f)
+static void		add_prec(char *str, int prec, long double f)
 {
-	int					i;
+	int			dec;
+	int			i;
 
+	dec = 0;
 	i = 0;
 	while (str[i])
 		i++;
-	str = round_up(i - 1, str, f);
-	return (str);
+	str[i] = '.';
+	i++;
+	while (prec)
+	{
+		f = f * (long double)10;
+		dec = (int)f;
+		f -= (long double)dec;
+		str[i] = dec + '0';
+		prec--;
+		i++;
+	}
 }
 
-char					*ft_fltoa(long double f, int prec)
+static int		fl_neg(char *str, int prec, long long dec, long double f)
 {
-	int					intlen;
-	char				*str;
-	long long			dec;
+	int			intlen;
 
-	if (prec == -1)
-		prec = 6;
-	dec = (long long)f;
-	f -= (long double)dec;
 	intlen = ft_llintlen(dec);
-	str = ft_strnew(intlen + prec + 1);
-	if (str == NULL)
-		return (NULL);
-	while (intlen > 0)
+	dec = -dec;
+	f = -f;
+	str[0] = '-';
+	f -= (long double)dec;
+	while (intlen > 1)
 	{
-		str[intlen - 1] = (dec % (long long)10) + '0';
+		str[intlen - 1] = dec % (long long)10 + '0';
 		dec = dec / (long long)10;
 		intlen--;
 	}
 	if (prec)
-		str = add_prec(str, prec, f);
-	else
-		str = no_prec(str, f);
+		add_prec(str, prec, f);
+	return (1);
+}
+
+static void		fl_pos(char *str, int prec, long long dec, long double f)
+{
+	int			intlen;
+
+	intlen = ft_llintlen(dec);
+	f -= (long double)dec;
+	while (intlen > 0)
+	{
+		str[intlen - 1] = dec % (long long)10 + '0';
+		dec = dec / (long long)10;
+		intlen--;
+	}
+	if (prec)
+		add_prec(str, prec, f);
+}
+
+char			*ft_fltoa(long double f, int prec)
+{
+	char		*str;
+	long long	dec;
+	int			neg;
+
+	neg = 0;
+	if (prec == -1)
+		prec = 6;
+	dec = (long long)f;
+	str = ft_strnew(ft_llintlen(dec) + prec + 1);
+	if (str == NULL)
+		return (NULL);
+	if (f == (double long)-0.0)
+	{
+		str[0] = '-';
+		str[1] = '0';
+		add_prec(str, prec, f);
+	}
+	if (dec < 0)
+		neg = fl_neg(str, prec, dec, f);
+	else if (f != (double long)-0.0)
+		fl_pos(str, prec, dec, f);
+	str = round_up(str, prec, f, neg);
 	return (str);
 }
