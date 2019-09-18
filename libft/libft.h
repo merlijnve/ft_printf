@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 15:04:06 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/16 19:13:51 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/18 18:12:44 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,8 @@ int					ft_charindex(const char *str, char c);
 int					ft_ullintlen(unsigned long long n);
 char				*ft_ulltoa(unsigned long long n);
 char				*ft_fltoa(long double f, int prec);
+int					ft_endcharcws(char *str, char c, char skip);
+char				*ft_straddtofront(char *str, char *add);
+char				*ft_straddtoend(char *str, char *add);
 
 #endif
