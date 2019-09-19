@@ -6,37 +6,11 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 12:49:06 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/16 18:10:00 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/19 17:32:25 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-
-static char	*add_plus(char *str)
-{
-	char	*buf;
-	int		len;
-
-	len = (int)ft_strlen(str);
-	buf = ft_strnew(len);
-	buf[0] = '+';
-	ft_strncpy(&buf[1], str, ft_strlen(str));
-	ft_strdel(&str);
-	return (buf);
-}
-
-static char	*add_space(char *str)
-{
-	char	*buf;
-	int		len;
-
-	len = (int)ft_strlen(str);
-	buf = ft_strnew(len);
-	buf[0] = ' ';
-	ft_strncpy(&buf[1], str, ft_strlen(str));
-	ft_strdel(&str);
-	return (buf);
-}
 
 char		*add_flags(char *str, t_print *print)
 {
@@ -45,17 +19,25 @@ char		*add_flags(char *str, t_print *print)
 	i = 0;
 	if (print->flags[2] == 1)
 	{
-		while (str[i] && str[i] < '0' && str[i] > '9')
+		while (str[i] && str[i] < '0' && str[i] > '9' && str[i] != '.')
 			i++;
 		if (i == 0 && str[i] != '-')
-			str = add_plus(str);
+		{
+			str = ft_straddtofront(str, "+");
+			if (!str)
+				return (NULL);
+		}
 	}
 	if (print->flags[4] && !print->flags[2])
 	{
-		while (str[i] && str[i] < '0' && str[i] > '9')
+		while (str[i] && str[i] < '0' && str[i] > '9' && str[i] != '.')
 			i++;
 		if (i == 0 && str[i] != '-')
-			str = add_space(str);
+		{
+			str = ft_straddtofront(str, " ");
+			if (!str)
+				return (NULL);
+		}
 	}
 	return (str);
 }

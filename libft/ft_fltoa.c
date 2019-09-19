@@ -6,37 +6,37 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 13:02:13 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/18 17:47:25 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/19 17:40:16 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
-static char		*round_up(char *str, int prec, long double f, int neg)
+static char		*round_up(char *str, int prec, long double f, long long n[2])
 {
-	int			n;
-
 	while (prec > -1)
 	{
 		f = f * (long double)10;
 		prec--;
+		n[1] = (long long)f;
+		f -= (long double)n[1];
 	}
-	n = (int)f;
-	if (n % 10 >= 5 || n % 10 <= -5)
+	if (n[1] % 10 >= 5 || n[1] % 10 <= -5)
 	{
-		n = ft_strlen(str);
-		while (n > 0 && (str[n - 1] == '9' || str[n - 1] == '.'))
+		n[1] = ft_strlen(str);
+		while (n > 0 && (str[n[1] - 1] == '9' || str[n[1] - 1] == '.'))
 		{
-			if (str[n - 1] != '.')
-				str[n - 1] = '0';
-			n--;
+			if (str[n[1] - 1] != '.')
+				str[n[1] - 1] = '0';
+			n[1]--;
 		}
-		if (n == 0 && neg == 1)
+		if (n[1] == 0 && n[0] == 1)
 			str = ft_straddtofront(str, "-1");
-		if (n == 0 && neg == 0)
+		if (n[1] == 0 && n[0] == 0)
 			str = ft_straddtofront(str, "1");
-		else if (n)
-			str[n - 1] = str[n - 1] + 1;
+		else if (n[1])
+			str[n[1] - 1] = str[n[1] - 1] + 1;
 	}
 	return (str);
 }
@@ -103,9 +103,11 @@ char			*ft_fltoa(long double f, int prec)
 {
 	char		*str;
 	long long	dec;
-	int			neg;
+	long long	neg[2];
 
-	neg = 0;
+	if (f == (long double)1 / 0)
+		return (ft_strdup("inf"));
+	neg[0] = 0;
 	if (prec == -1)
 		prec = 6;
 	dec = (long long)f;
@@ -119,7 +121,7 @@ char			*ft_fltoa(long double f, int prec)
 		add_prec(str, prec, f);
 	}
 	if (dec < 0)
-		neg = fl_neg(str, prec, dec, f);
+		neg[0] = fl_neg(str, prec, dec, f);
 	else if (f != (double long)-0.0)
 		fl_pos(str, prec, dec, f);
 	str = round_up(str, prec, f, neg);
