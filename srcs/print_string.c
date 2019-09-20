@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:21:57 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/18 20:12:49 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/20 15:14:42 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,10 @@ int		print_string(t_print *print, char *fmt, va_list ap)
 		if (!print)
 			return (0);
 		print = print->next;
+		fmt++;
 		while (*fmt && *fmt != 'd' && *fmt != 'i' && *fmt != 'o' && *fmt != 'x'
 		&& *fmt != 'u' && *fmt != 'X' && *fmt != 's' && *fmt != 'c'
-		&& *fmt != 'p' && *fmt != 'f')
+		&& *fmt != 'p' && *fmt != 'f' && *fmt != '%')
 			fmt++;
 		if (!*fmt)
 			return (printed_chars);
