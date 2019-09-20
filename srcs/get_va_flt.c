@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/27 18:11:16 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/20 15:23:34 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/20 15:54:14 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void		flt_to_str(long double f, t_print *print)
 
 	if (f == 1.0 / 0.0 || f != f || f == -1.0 / 0.0)
 		str = set_specials(f, print);
-	else	
+	else
 		str = ft_fltoa(f, print->prec);
 	if (print->prec == 0 && print->flags[0])
 		str = ft_straddtoend(str, ".");
