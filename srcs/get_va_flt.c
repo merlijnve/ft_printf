@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/27 18:11:16 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/18 18:15:26 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/20 13:18:28 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,40 @@ static char		*fill_width_f(char *str, t_print *print)
 	return (buf);
 }
 
+static char		*set_specials(long double f, t_print *print)
+{
+	char		*str;
+	
+	print->flags[1] = 0;
+	if (f == 1.0 / 0.0)
+		str = ft_strdup("inf");
+	if (f != f)
+	{
+		str = ft_strdup("nan");
+		print->flags[2] = 0;
+		print->flags[4] = 0;
+	}
+	if (f == -1.0 / 0.0)
+		str = ft_strdup("-inf");
+	return (str);
+}
+
 static void		flt_to_str(long double f, t_print *print)
 {
 	char		*str;
 	char		*buf;
 
-	str = ft_fltoa(f, print->prec);
+	if (f == 1.0 / 0.0 || f != f || f == -1.0 / 0.0)
+		str = set_specials(f, print);
+	else	
+		str = ft_fltoa(f, print->prec);
 	if (print->prec == 0 && print->flags[0])
 		str = ft_straddtoend(str, ".");
 	if (f == (long double)-0.0 || f < (long double)0)
 		print->value = -1;
 	if (f >= (long double)0)
 		print->value = 1;
-	buf = add_flags(str, print);
+	str = add_flags(str, print);
 	if (print->width > (int)ft_strlen(str))
 	{
 		buf = str;
@@ -73,7 +94,6 @@ static void		flt_to_str(long double f, t_print *print)
 		ft_strdel(&buf);
 	}
 	ft_putstr(str);
-	ft_strdel(&str);
 }
 
 void			get_va_flt(t_print *print, va_list ap)
