@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/27 18:11:16 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/20 15:54:14 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/20 15:55:16 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char		*fill_width_f(char *str, t_print *print)
 static char		*set_specials(long double f, t_print *print)
 {
 	char		*str;
-	
+
 	print->flags[1] = 0;
 	if (f == 1.0 / 0.0)
 		str = ft_strdup("inf");
