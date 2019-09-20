@@ -6,11 +6,27 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/18 17:53:03 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/19 19:23:31 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+static char		*add_precision(char *str, t_print *print)
+{
+	int		len;
+	char	*res;
+	char	*head;
+
+	len = ft_strlen(str);
+	if (len >= print->prec)
+		return (str);
+	res = ft_strnew(print->prec);
+	head = res;
+	res = ft_memset(res, '0', print->prec);
+	res = ft_strncpy(&res[print->prec - len], str, len);
+	return (head);
+}
 
 static void		b_to_str(long long n, t_print *print)
 {
@@ -21,9 +37,13 @@ static void		b_to_str(long long n, t_print *print)
 	print->value = n;
 	base = print->fid == 'o' ? 8 : 16;
 	str = ft_nbrbase(n, base);
+	if (print->value == 0 && print->prec == 0)
+		str = ft_strnew(0);
 	t = str;
-	if (print->width > (int)ft_strlen(str))
-		t = make_width_base(print, base, str);
+	if ((int)ft_strlen(str) < print->prec)
+		t = add_precision(str, print);
+	if (print->width > (int)ft_strlen(t))
+		t = make_width_base(print, base, t);
 	else
 	{
 		if (print->flags[0] == 1 && base == 8 && print->value != 0)

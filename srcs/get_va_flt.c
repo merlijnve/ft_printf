@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/27 18:11:16 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/20 13:18:28 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/20 15:23:34 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ static void		flt_to_str(long double f, t_print *print)
 		str = fill_width_f(str, print);
 		ft_strdel(&buf);
 	}
+	print->printed = ft_strlen(str);
 	ft_putstr(str);
 }
 
