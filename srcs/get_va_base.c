@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/19 19:23:31 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/25 12:11:42 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ static void		b_to_str(long long n, t_print *print)
 		t = make_width_base(print, base, t);
 	else
 	{
-		if (print->flags[0] == 1 && base == 8 && print->value != 0)
+		//printf("\nprint->value: %lld\n", print->value);
+		if (print->flags[0] == 1 && base == 8)
 			t = ft_strjoin("0", str);
-		else if (print->flags[0] == 1 && base == 16 && print->value != 0)
+		else if (print->flags[0] == 1 && base == 16)
 			t = ft_strjoin("0x", str);
 	}
 	ft_strdel(&str);

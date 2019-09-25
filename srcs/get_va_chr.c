@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/30 14:45:26 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/17 14:07:31 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/25 11:46:42 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,19 @@ void		get_va_chr(t_print *print, va_list ap)
 {
 	char	c;
 	char	*s;
+	int		i;
 
+	i = 0;
 	c = (char)va_arg(ap, int);
 	if (print->width > 1)
 	{
 		s = make_chr_wid(print->width, c, print->flags[3]);
-		ft_putstr(s);
-		print->printed = ft_strlen(s);
+		print->printed = print->width;
+		while (i < print->width)
+		{
+			ft_putchar(s[i]);
+			i++;
+		}
 		ft_strdel(&s);
 	}
 	else
