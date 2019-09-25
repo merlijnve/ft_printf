@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/20 15:14:44 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/25 17:09:47 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ static void		i_to_str(long long n, t_print *print)
 
 	str = ft_lltoa(n);
 	print->value = n;
-	if ((int)ft_strlen(str) < print->prec)
+	if (print->value == 0 && print->prec == 0)
+		str = ft_strnew(0);
+	else if (print->prec != -1)
 		str = add_precision(str, print);
 	str = add_flags(str, print);
 	if (print->width > (int)ft_strlen(str))
