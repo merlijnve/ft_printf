@@ -6,11 +6,24 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 12:49:06 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/19 17:32:25 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/25 16:50:39 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+
+static char	*space_plus(char *str, int i)
+{
+	while (str[i] && str[i] < '0' && str[i] > '9' && str[i] != '.')
+		i++;
+	if (i == 0 && str[i] != '-')
+	{
+		str = ft_straddtofront(str, " ");
+		if (!str)
+			return (NULL);
+	}
+	return (str);
+}
 
 char		*add_flags(char *str, t_print *print)
 {
@@ -30,14 +43,9 @@ char		*add_flags(char *str, t_print *print)
 	}
 	if (print->flags[4] && !print->flags[2])
 	{
-		while (str[i] && str[i] < '0' && str[i] > '9' && str[i] != '.')
-			i++;
-		if (i == 0 && str[i] != '-')
-		{
-			str = ft_straddtofront(str, " ");
-			if (!str)
-				return (NULL);
-		}
+		str = space_plus(str, i);
+		if (!str)
+			return (NULL);
 	}
 	return (str);
 }
