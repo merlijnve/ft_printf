@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/26 14:18:22 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 16:34:19 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void		move_plusmin(char *str, char c, t_print *print)
 	i = 0;
 	if (print->value < 0)
 		str[i] = '-';
-	if (print->value > 0 && print->flags[4])
+	if (print->value >= 0 && print->flags[4])
 		str[i] = ' ';
-	if (print->value > 0 && print->flags[2])
+	if (print->value >= 0 && print->flags[2])
 		str[i] = '+';
 	i++;
 	while (str[i] == c)

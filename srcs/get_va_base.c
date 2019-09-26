@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/25 15:39:53 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 16:43:11 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ static char		*add_precision(char *str, t_print *print)
 	return (head);
 }
 
-static char		*add_hash(int base, char *str, long long value, char *t)
+static char		*add_hash(int base, char *str, t_print *print, char *t)
 {
-	if (base == 8)
+	if (base == 8 && print->value != 0)
 		t = ft_strjoin("0", str);
-	else if (base == 16 && value != 0)
+	else if (base == 16 && print->value != 0)
 		t = ft_strjoin("0x", str);
 	return (t);
 }
@@ -54,7 +54,7 @@ static void		b_to_str(long long n, t_print *print)
 	if (print->width > (int)ft_strlen(t))
 		t = make_width_base(print, base, t);
 	else if (print->flags[0] == 1)
-		t = add_hash(base, str, print->value, t);
+		t = add_hash(base, str, print, t);
 	ft_strdel(&str);
 	if (print->fid == 'X')
 		ft_str_to_uppercase(t);
