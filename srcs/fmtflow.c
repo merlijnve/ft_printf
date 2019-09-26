@@ -6,19 +6,19 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/21 15:21:58 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/17 11:20:33 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 14:50:57 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void			fmtflow(t_print *print, char *fmt)
+void			fmtflow(t_print *print, char *fmt, va_list ap)
 {
 	while (ft_strchr(fmt, '%'))
 	{
 		while (*fmt != '%')
 			fmt++;
-		fmt = fill_struct(print, fmt);
+		fmt = fill_struct(print, fmt, ap);
 		if (ft_strchr(fmt, '%'))
 		{
 			print->next = ft_memalloc(sizeof(t_print));

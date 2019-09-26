@@ -6,13 +6,13 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 18:43:55 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/17 14:18:17 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 14:53:34 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static char		*check_width_prec(t_print *print, char *fmt)
+static char		*check_width_prec(t_print *print, char *fmt, va_list ap)
 {
 	print->prec = -1;
 	if (*fmt >= '1' && *fmt <= '9')
@@ -21,10 +21,21 @@ static char		*check_width_prec(t_print *print, char *fmt)
 		while (*fmt >= '0' && *fmt <= '9')
 			fmt++;
 	}
+	if (*fmt == '*')
+	{
+		print->width = va_arg(ap, int);
+		fmt++;
+	}
 	if (*fmt == '.')
 	{
 		fmt++;
-		print->prec = ft_atoi(fmt);
+		if (*fmt == '*')
+		{
+			print->prec = va_arg(ap, int);
+			fmt++;
+		}
+		else
+			print->prec = ft_atoi(fmt);
 		while (*fmt >= '0' && *fmt <= '9')
 			fmt++;
 	}
@@ -80,11 +91,16 @@ static char		*check_fid(t_print *print, char *fmt)
 	return (fmt);
 }
 
-char			*fill_struct(t_print *print, char *fmt)
+char			*fill_struct(t_print *print, char *fmt, va_list ap)
 {
 	fmt++;
 	fmt = check_flags(print, fmt);
-	fmt = check_width_prec(print, fmt);
+	fmt = check_width_prec(print, fmt, ap);
+	if (print->width < 0)
+	{
+		print->flags[3] = 1;
+		print->width = print->width * -1;
+	}
 	fmt = check_spec(print, fmt);
 	fmt = check_fid(print, fmt);
 	return (fmt);

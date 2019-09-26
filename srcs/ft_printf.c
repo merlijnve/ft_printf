@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:08:46 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/16 15:37:00 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 13:55:35 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			ft_printf(const char *fmt, ...)
 		exit(1);
 	print->next = NULL;
 	dup = (char *)fmt;
-	fmtflow(print, dup);
+	fmtflow(print, dup, ap);
 	printed_chars = print_string(print, dup, ap);
 	printed_chars += free_struct(print);
 	va_end(ap);

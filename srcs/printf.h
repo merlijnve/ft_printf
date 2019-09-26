@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/17 15:15:18 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 14:03:11 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 # include "../libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
+
+# define _JOY_ "\U0001F602"
+# define _EGGPLANT_ "\U0001F346"
+# define _AVOCADO_ "\U0001F951"
+# define _OK_ "\U0001F44C"
+# define _100_ "\U0001F4AF"
+# define _MONKEY_ "\U0001F435"
+# define _ALARM_ "\U0001F6A8"
 
 /*
 **	SPEC
@@ -56,9 +64,9 @@ typedef struct		s_print
 int					ft_printf(const char *fmt, ...);
 void				fmtstr_loop(t_print *print, char *fmt, va_list ap);
 void				get_va_chr(t_print *print, va_list ap);
-void				fmtflow(t_print *print, char *fmt);
+void				fmtflow(t_print *print, char *fmt, va_list ap);
 int					print_string(t_print *print, char *fmt, va_list ap);
-char				*fill_struct(t_print *print, char *fmt);
+char				*fill_struct(t_print *print, char *fmt, va_list ap);
 void				get_va_int(t_print *print, va_list ap);
 char				*ft_lltoa(long long n);
 int					get_va_str(t_print *print, va_list ap);
