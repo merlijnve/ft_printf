@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 18:22:57 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/19 11:16:53 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 14:24:36 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static char		*add_precision(char *str, t_print *print)
 	char	*head;
 
 	len = ft_strlen(str);
+	if (print->prec == 0 && print->value == 0)
+		return (ft_strnew(0));
 	if (len >= print->prec)
 		return (str);
 	res = ft_strnew(print->prec);

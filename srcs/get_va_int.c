@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/28 17:20:24 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/25 17:09:47 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 14:18:22 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char		*add_precision(char *str, t_print *print)
 	}
 	len = ft_strlen(str);
 	if (len >= print->prec)
-		return (str);
+		return (neg == 1 ? ft_straddtofront(str, "-") : str);
 	res = ft_strnew(print->prec);
 	head = res;
 	res = ft_memset(res, '0', print->prec);
