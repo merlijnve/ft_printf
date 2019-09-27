@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/05 19:41:11 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/05 19:42:36 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/27 14:31:22 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		ft_llintlen(long long int n)
 	len = 0;
 	if (n == 0)
 		return (1);
+	if (n < -9223372036854775807)
+		return (20);
 	if (n < 0)
 	{
 		len++;
