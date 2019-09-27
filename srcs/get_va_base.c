@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/27 20:28:19 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/27 20:52:51 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,38 +40,39 @@ static char		*add_precision(char *str, t_print *print, int base)
 
 static char		*add_hash(int base, char *str, t_print *print, char *t)
 {
-	if (base == 8 && print->value != 0)
-		t = ft_strjoin("0", t);
-	if (base == 8 && !*str)
-		t = ft_strjoin("0", t);
+	if ((base == 8 && str[0] == '\0') || (base == 8 && print->value != 0))
+		t = ft_straddtofront(t, "0");
 	else if (base == 16 && print->value != 0)
-		t = ft_strjoin("0x", t);
+		t = ft_straddtofront(t, "0x");
 	return (t);
 }
 
 static void		b_to_str(unsigned long long n, t_print *print)
 {
-	char	*str;
-	char	*t;
-	int		base;
+	char		*str;
+	char		*buf;
+	int			base;
 
 	print->value = n;
 	base = print->fid == 'o' ? 8 : 16;
 	str = ft_unbrbase(n, base);
 	if (print->value == 0 && print->prec == 0)
+	{
+		ft_strdel(&str);
 		str = ft_strnew(0);
-	t = str;
+	}
+	buf = str;
 	if ((int)ft_strlen(str) < print->prec - print->flags[0])
-		t = add_precision(str, print, base);
-	if (print->width > (int)ft_strlen(t))
-		t = make_width_base(print, base, t);
+		buf = add_precision(str, print, base);
+	if (print->width > (int)ft_strlen(buf))
+		buf = make_width_base(print, base, buf);
 	else if (print->flags[0] == 1)
-		t = add_hash(base, str, print, t);
-	ft_strdel(&str);
+		buf = add_hash(base, str, print, buf);
 	if (print->fid == 'X')
-		ft_str_to_uppercase(t);
-	ft_putstr(t);
-	print->printed = ft_strlen(t);
+		ft_str_to_uppercase(buf);
+	ft_putstr(buf);
+	print->printed = ft_strlen(buf);
+	ft_strdel(&buf);
 }
 
 void			get_va_base(t_print *print, va_list ap)
