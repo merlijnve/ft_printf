@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/27 16:22:09 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/27 17:55:25 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,16 @@ static char		*add_precision(char *str, t_print *print, int base)
 
 static char		*add_hash(int base, char *str, t_print *print, char *t)
 {
+	char	*buf;
+
+	buf = NULL;
 	if (base == 8 && print->value != 0)
-		t = ft_strjoin("0", t);
+		buf = ft_strjoin("0", t);
 	if (base == 8 && !*str)
-		t = ft_strjoin("0", t);
+		buf = ft_strjoin("0", t);
 	else if (base == 16 && print->value != 0)
-		t = ft_strjoin("0x", t);
-	return (t);
+		buf = ft_strjoin("0x", t);
+	return (buf);
 }
 
 static void		b_to_str(unsigned long long n, t_print *print)
@@ -59,7 +62,10 @@ static void		b_to_str(unsigned long long n, t_print *print)
 	base = print->fid == 'o' ? 8 : 16;
 	str = ft_nbrbase(n, base);
 	if (print->value == 0 && print->prec == 0)
+	{
+		ft_strdel(&str);
 		str = ft_strnew(0);
+	}
 	t = str;
 	if ((int)ft_strlen(str) < print->prec - print->flags[0])
 		t = add_precision(str, print, base);
