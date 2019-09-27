@@ -6,7 +6,7 @@
 #    By: jboer <jboer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/08/19 16:21:30 by jboer          #+#    #+#                 #
-#    Updated: 2019/09/26 17:45:13 by mvan-eng      ########   odam.nl          #
+#    Updated: 2019/09/27 17:50:46 by mvan-eng      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBFT = ft_atoi ft_lltoa ft_memalloc ft_memdel ft_memset ft_nbrbase ft_putchar\
 ft_putstr ft_str_to_uppercase ft_strchr ft_strcpy ft_strdel ft_strdup \
 ft_strjoin ft_strlen ft_strncpy ft_strnew ft_ulltoa ft_isdigit ft_llintlen \
 ft_longtos ft_ullintlen ft_fltoa ft_putnbr ft_putnbrlong ft_putendl ft_fltoa \
-ft_straddtofront ft_straddtoend ft_strcmp
+ft_straddtofront ft_straddtoend ft_strcmp ft_unbrbase
 
 SRCS = $(FILES:%=srcs/%.c)
 
