@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/27 16:38:44 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/27 20:28:19 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void		b_to_str(unsigned long long n, t_print *print)
 
 	print->value = n;
 	base = print->fid == 'o' ? 8 : 16;
-	str = ft_nbrbase(n, base);
+	str = ft_unbrbase(n, base);
 	if (print->value == 0 && print->prec == 0)
 		str = ft_strnew(0);
 	t = str;
