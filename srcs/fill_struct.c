@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 18:43:55 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/26 14:53:34 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/26 19:33:28 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static char		*check_width_prec(t_print *print, char *fmt, va_list ap)
 {
-	print->prec = -1;
 	if (*fmt >= '1' && *fmt <= '9')
 	{
 		print->width = ft_atoi(fmt);
@@ -95,6 +94,7 @@ char			*fill_struct(t_print *print, char *fmt, va_list ap)
 {
 	fmt++;
 	fmt = check_flags(print, fmt);
+	print->prec = -1;
 	fmt = check_width_prec(print, fmt, ap);
 	if (print->width < 0)
 	{

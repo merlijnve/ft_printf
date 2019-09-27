@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/05 19:43:15 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/26 15:49:05 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 19:31:02 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,16 @@ static char	*make_ptr_wid(int w, char *s, int lj)
 	return (res);
 }
 
+static char	*add_precision(char *res, t_print *print)
+{
+	while ((int)ft_strlen(res) < print->prec)
+	{
+		res = ft_straddtofront(res, "0");
+		print->printed += 1;
+	}
+	return (res);
+}
+
 void		get_va_ptr(t_print *print, va_list ap)
 {
 	unsigned long	p;
@@ -55,14 +65,22 @@ void		get_va_ptr(t_print *print, va_list ap)
 	i = 0;
 	p = va_arg(ap, unsigned long);
 	res = ft_nbrbase(p, 16);
+	res = add_precision(res, print);
 	if (print->width > ((int)ft_strlen(res) + 2))
+	{
 		res = make_ptr_wid(print->width, res, print->flags[3]);
+		ft_putstr(res);
+		print->printed += ft_strlen(res);
+	}
 	else
 	{
 		ft_putstr("0x");
 		print->printed = 2;
+		if (print->prec != 0 || p != 0)
+		{
+			ft_putstr(res);
+			print->printed += ft_strlen(res);
+		}
 	}
-	ft_putstr(res);
-	print->printed += ft_strlen(res);
 	ft_strdel(&res);
 }

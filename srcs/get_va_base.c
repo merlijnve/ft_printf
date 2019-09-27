@@ -6,13 +6,13 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/26 16:43:11 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/26 19:57:48 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static char		*add_precision(char *str, t_print *print)
+static char		*add_precision(char *str, t_print *print, int base)
 {
 	int		len;
 	char	*res;
@@ -21,19 +21,31 @@ static char		*add_precision(char *str, t_print *print)
 	len = ft_strlen(str);
 	if (len >= print->prec)
 		return (str);
-	res = ft_strnew(print->prec);
-	head = res;
-	res = ft_memset(res, '0', print->prec);
-	res = ft_strncpy(&res[print->prec - len], str, len);
+	if (base == 8)
+	{
+		res = ft_strnew(print->prec - print->flags[0]);
+		head = res;
+		res = ft_memset(res, '0', print->prec - print->flags[0]);
+		ft_strncpy(&res[print->prec - len - print->flags[0]], str, len);
+	}
+	else
+	{
+		res = ft_strnew(print->prec);
+		head = res;
+		res = ft_memset(res, '0', print->prec);
+		ft_strncpy(&res[print->prec - len], str, len);
+	}
 	return (head);
 }
 
 static char		*add_hash(int base, char *str, t_print *print, char *t)
 {
 	if (base == 8 && print->value != 0)
-		t = ft_strjoin("0", str);
+		t = ft_strjoin("0", t);
+	if (base == 8 && !*str)
+		t = ft_strjoin("0", t);
 	else if (base == 16 && print->value != 0)
-		t = ft_strjoin("0x", str);
+		t = ft_strjoin("0x", t);
 	return (t);
 }
 
@@ -49,8 +61,8 @@ static void		b_to_str(long long n, t_print *print)
 	if (print->value == 0 && print->prec == 0)
 		str = ft_strnew(0);
 	t = str;
-	if ((int)ft_strlen(str) < print->prec)
-		t = add_precision(str, print);
+	if ((int)ft_strlen(str) < print->prec - print->flags[0])
+		t = add_precision(str, print, base);
 	if (print->width > (int)ft_strlen(t))
 		t = make_width_base(print, base, t);
 	else if (print->flags[0] == 1)
