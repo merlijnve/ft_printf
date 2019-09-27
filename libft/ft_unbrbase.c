@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_nbrbase.c                                       :+:    :+:            */
+/*   ft_unbrbase.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/09/06 13:43:08 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/27 17:08:13 by mvan-eng      ########   odam.nl         */
+/*   Created: 2019/09/27 17:08:00 by mvan-eng       #+#    #+#                */
+/*   Updated: 2019/09/27 17:21:51 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nbrbase_loop(long long l, int b, char *res)
+static int	ft_unbrbase_loop(unsigned long long l, int b, char *res)
 {
-	int		i;
-	int		m;
+	int	i;
+	int m;
 
 	i = 67;
 	res[i] = '\0';
@@ -32,21 +32,14 @@ static int	ft_nbrbase_loop(long long l, int b, char *res)
 	return (i);
 }
 
-char		*ft_nbrbase(long long l, int b)
+char		*ft_unbrbase(unsigned long long l, int b)
 {
 	char	*res;
 	int		i;
 	char	*s;
 
-	res = (char *)malloc(sizeof(char) * 68);
-	if (l < 0)
-	{
-		i = ft_nbrbase_loop(l * -1, b, res);
-		i--;
-		res[i] = '-';
-	}
-	else
-		i = ft_nbrbase_loop(l, b, res);
+	res = ft_strnew(68);
+	i = ft_unbrbase_loop(l, b, res);
 	if (l == 0)
 	{
 		i = 66;

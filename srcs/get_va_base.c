@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/12 12:29:11 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/27 16:22:09 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/27 16:38:44 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void			get_va_base(t_print *print, va_list ap)
 	if (print->spec == 2)
 		b_to_str((unsigned short)va_arg(ap, unsigned int), print);
 	if (print->spec == 3)
-		b_to_str((unsigned long)va_arg(ap, unsigned long), print);
+		b_to_str(va_arg(ap, unsigned long), print);
 	if (print->spec == 4)
-		b_to_str((unsigned long long)va_arg(ap, unsigned long long), print);
+		b_to_str(va_arg(ap, unsigned long long), print);
 }
