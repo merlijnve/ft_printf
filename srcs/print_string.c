@@ -6,11 +6,12 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:21:57 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/28 14:17:56 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/28 17:34:24 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+#include <time.h>
 
 void	print_arg(t_print *print, va_list ap)
 {
@@ -32,6 +33,8 @@ void	print_arg(t_print *print, va_list ap)
 		print_perc(print);
 	if (print->fid == 'b')
 		get_va_binary(print, ap);
+	if (print->fid == 'a')
+		get_va_array(print, ap);
 }
 
 int		print_chars(char *fmt)
@@ -46,6 +49,16 @@ int		print_chars(char *fmt)
 		fmt++;
 	}
 	return (printed_chars);
+}
+
+char	*skip_chars(char *fmt)
+{
+	while (*fmt && *fmt != 'd' && *fmt != 'i' && *fmt != 'o' && *fmt != 'x'
+	&& *fmt != 'u' && *fmt != 'X' && *fmt != 's' && *fmt != 'c'
+	&& *fmt != 'p' && *fmt != 'f' && *fmt != '%' && *fmt != 'b'
+	&& *fmt != 'a')
+		fmt++;
+	return (fmt);
 }
 
 int		print_string(t_print *print, char *fmt, va_list ap)
@@ -66,10 +79,7 @@ int		print_string(t_print *print, char *fmt, va_list ap)
 			return (0);
 		print = print->next;
 		fmt++;
-		while (*fmt && *fmt != 'd' && *fmt != 'i' && *fmt != 'o' && *fmt != 'x'
-		&& *fmt != 'u' && *fmt != 'X' && *fmt != 's' && *fmt != 'c'
-		&& *fmt != 'p' && *fmt != 'f' && *fmt != '%' && *fmt != 'b')
-			fmt++;
+		fmt = skip_chars(fmt);
 		if (!*fmt)
 			return (printed_chars);
 		fmt++;
