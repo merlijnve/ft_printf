@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/28 16:40:51 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/28 18:00:18 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/28 20:54:21 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,36 @@ static void	print_row(int *row, unsigned int columns, t_print *print)
 	}
 }
 
+static void print_char_row(char *str, t_print *print)
+{
+	int		c;
+	char	spaces[200];
+	int		i;
+
+	c = print->flags[1] ? '0' : ' ';
+	i = 0;
+	while (i < 200)
+	{
+		spaces[i] = c;
+		i++;
+	}
+	spaces[199] = '\0';
+	i = 0;
+	if (print->flags[3])
+	{
+		ft_putstr(str);
+		if (print->width > (int)ft_strlen(str))
+			ft_putstr(&spaces[200 + ft_strlen(str) - print->width]);
+		ft_putchar('\n');
+	}
+	else
+	{
+		if (print->width > (int)ft_strlen(str))
+			ft_putstr(&spaces[200 + ft_strlen(str) - print->width]);
+		ft_putendl(str);
+	}
+}
+
 static void	get_va_int_array(t_print *print, va_list ap)
 {
 	int				**ar;
@@ -61,7 +91,7 @@ static void	get_va_int_array(t_print *print, va_list ap)
 	}
 }
 
-static void	get_va_char_array(va_list ap)
+static void	get_va_char_array(t_print *print, va_list ap)
 {
 	char			**ar;
 	unsigned int	rows;
@@ -72,7 +102,7 @@ static void	get_va_char_array(va_list ap)
 	rows = va_arg(ap, unsigned int);
 	while (i < rows)
 	{
-		ft_putendl(ar[i]);
+		print_char_row(ar[i], print);
 		i++;
 	}
 }
@@ -82,5 +112,5 @@ void		get_va_array(t_print *print, va_list ap)
 	if (print->flags[0])
 		get_va_int_array(print, ap);
 	else
-		get_va_char_array(ap);
+		get_va_char_array(print, ap);
 }
