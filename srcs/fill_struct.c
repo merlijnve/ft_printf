@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 18:43:55 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/26 19:33:28 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/28 14:07:24 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static char		*check_fid(t_print *print, char *fmt)
 	*fmt == 'o' || *fmt == 'x' || *fmt == 'X' || *fmt == 'f' ||
 	*fmt == 'F' || *fmt == 'e' || *fmt == 'E' || *fmt == 'g' ||
 	*fmt == 'G' || *fmt == 'a' || *fmt == 'A' || *fmt == 'c' ||
-	*fmt == 's' || *fmt == 'p' || *fmt == 'n')
+	*fmt == 's' || *fmt == 'p' || *fmt == 'n' || *fmt == 'b')
 		print->fid = *fmt;
 	fmt++;
 	return (fmt);

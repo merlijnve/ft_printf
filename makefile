@@ -6,7 +6,7 @@
 #    By: jboer <jboer@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/08/19 16:21:30 by jboer          #+#    #+#                 #
-#    Updated: 2019/09/27 17:50:46 by mvan-eng      ########   odam.nl          #
+#    Updated: 2019/09/28 14:08:26 by mvan-eng      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC = gcc
 
 FILES = ft_printf fmtflow print_string fill_struct get_va_chr add_flags \
 fill_struct get_va_base get_va_int get_va_ptr get_va_str get_va_uns \
-make_width_base print_perc get_va_flt
+make_width_base print_perc get_va_flt get_va_binary
 
 LIBFT = ft_atoi ft_lltoa ft_memalloc ft_memdel ft_memset ft_nbrbase ft_putchar\
 ft_putstr ft_str_to_uppercase ft_strchr ft_strcpy ft_strdel ft_strdup \

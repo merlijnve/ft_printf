@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 16:21:57 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/20 15:14:42 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/28 14:17:56 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	print_arg(t_print *print, va_list ap)
 		get_va_str(print, ap);
 	if (print->fid == '%')
 		print_perc(print);
+	if (print->fid == 'b')
+		get_va_binary(print, ap);
 }
 
 int		print_chars(char *fmt)
@@ -66,7 +68,7 @@ int		print_string(t_print *print, char *fmt, va_list ap)
 		fmt++;
 		while (*fmt && *fmt != 'd' && *fmt != 'i' && *fmt != 'o' && *fmt != 'x'
 		&& *fmt != 'u' && *fmt != 'X' && *fmt != 's' && *fmt != 'c'
-		&& *fmt != 'p' && *fmt != 'f' && *fmt != '%')
+		&& *fmt != 'p' && *fmt != 'f' && *fmt != '%' && *fmt != 'b')
 			fmt++;
 		if (!*fmt)
 			return (printed_chars);

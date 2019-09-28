@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/26 14:03:11 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/28 14:08:59 by mvan-eng      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ char				*make_width_base(t_print *print, int base, char *str);
 void				get_va_uns(t_print *print, va_list ap);
 void				print_perc(t_print *print);
 void				get_va_flt(t_print *print, va_list ap);
+void				get_va_binary(t_print *print, va_list ap);
 
 #endif
