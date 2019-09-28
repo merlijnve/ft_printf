@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/28 16:40:51 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/28 17:45:09 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/28 18:00:18 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **	Needs amount of rows and defaults to 1
 */
 
-void	print_row(int *row, unsigned int columns, t_print *print)
+static void	print_row(int *row, unsigned int columns, t_print *print)
 {
 	unsigned int	i;
 	char			spaces[50];
@@ -42,7 +42,7 @@ void	print_row(int *row, unsigned int columns, t_print *print)
 	}
 }
 
-void	get_va_int_array(t_print *print, va_list ap)
+static void	get_va_int_array(t_print *print, va_list ap)
 {
 	int				**ar;
 	unsigned int	i;
@@ -59,4 +59,28 @@ void	get_va_int_array(t_print *print, va_list ap)
 		ft_putchar('\n');
 		i++;
 	}
+}
+
+static void	get_va_char_array(va_list ap)
+{
+	char			**ar;
+	unsigned int	rows;
+	unsigned int	i;
+
+	i = 0;
+	ar = va_arg(ap, char **);
+	rows = va_arg(ap, unsigned int);
+	while (i < rows)
+	{
+		ft_putendl(ar[i]);
+		i++;
+	}
+}
+
+void		get_va_array(t_print *print, va_list ap)
+{
+	if (print->flags[0])
+		get_va_int_array(print, ap);
+	else
+		get_va_char_array(ap);
 }

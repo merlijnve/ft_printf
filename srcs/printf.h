@@ -6,7 +6,7 @@
 /*   By: jboer <jboer@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:19:19 by jboer          #+#    #+#                */
-/*   Updated: 2019/09/28 17:44:36 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/09/28 17:49:14 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,6 @@ void				get_va_uns(t_print *print, va_list ap);
 void				print_perc(t_print *print);
 void				get_va_flt(t_print *print, va_list ap);
 void				get_va_binary(t_print *print, va_list ap);
-void				get_va_int_array(t_print *print, va_list ap);
+void				get_va_array(t_print *print, va_list ap);
 
 #endif
