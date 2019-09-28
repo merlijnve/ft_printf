@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/28 16:40:51 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/28 20:54:21 by jboer         ########   odam.nl         */
+/*   Updated: 2019/09/28 21:03:50 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,8 @@ static void	print_row(int *row, unsigned int columns, t_print *print)
 	}
 }
 
-static void print_char_row(char *str, t_print *print)
+static void	print_char_row(char *str, t_print *print, int c)
 {
-	int		c;
 	char	spaces[200];
 	int		i;
 
@@ -96,13 +95,15 @@ static void	get_va_char_array(t_print *print, va_list ap)
 	char			**ar;
 	unsigned int	rows;
 	unsigned int	i;
+	int				c;
 
+	c = 0;
 	i = 0;
 	ar = va_arg(ap, char **);
 	rows = va_arg(ap, unsigned int);
 	while (i < rows)
 	{
-		print_char_row(ar[i], print);
+		print_char_row(ar[i], print, c);
 		i++;
 	}
 }
