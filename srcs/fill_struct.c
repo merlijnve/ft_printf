@@ -6,7 +6,7 @@
 /*   By: mvan-eng <mvan-eng@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/02 18:43:55 by mvan-eng       #+#    #+#                */
-/*   Updated: 2019/09/28 14:07:24 by mvan-eng      ########   odam.nl         */
+/*   Updated: 2019/10/01 17:19:47 by jboer         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static char		*check_width_prec(t_print *print, char *fmt, va_list ap)
 {
+	if (*fmt == '*')
+	{
+		print->width = va_arg(ap, int);
+		fmt++;
+	}
 	if (*fmt >= '1' && *fmt <= '9')
 	{
 		print->width = ft_atoi(fmt);
 		while (*fmt >= '0' && *fmt <= '9')
 			fmt++;
-	}
-	if (*fmt == '*')
-	{
-		print->width = va_arg(ap, int);
-		fmt++;
 	}
 	if (*fmt == '.')
 	{
